@@ -1,0 +1,32 @@
+{
+    "VLSFO": {
+        "price_min": 602,
+        "emissions_min": 11.7,
+        "price_max": 602,
+        "emissions_max": 13.2
+    },
+    "BIO-DIESEL": {
+        "price_min": 1110,
+        "emissions_min": 19.7,
+        "price_max": 1110,
+        "emissions_max": 32
+    },
+    "MDO": {
+        "price_min": 500,
+        "emissions_min": 26.9,
+        "price_max": 1250,
+        "emissions_max": 67.2
+    },
+    "LNG": {
+        "price_min": 329,
+        "emissions_min": 6.7,
+        "price_max": 1601,
+        "emissions_max": 32.6
+    },
+    "E-METHANOL": {
+        "price_min": 755,
+        "emissions_min": 37.944,
+        "price_max": 1926,
+        "emissions_max": 96.76
+    }
+}
