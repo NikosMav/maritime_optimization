@@ -17,8 +17,20 @@ def load_fuel_density(filename='fuel_density.json'):
     with open(filename, 'r') as file:
         return json.load(file)
 
-# Constants from the equations
-GHGi_target = 91.16 * 0.98  # Target GHGi
+def set_GHGi_target(year):
+    # Reference value and reduction targets
+    reference_value = 91.16
+    targets = {
+        2025: 2.0,
+        2030: 6.0,
+        2035: 14.5,
+        2040: 31.0,
+        2045: 62.0,
+        2050: 80.0,
+    }
+    reduction_percentage = targets.get(year, 0)
+    return reference_value * (1 - reduction_percentage / 100)
+
 
 def calculate_fuel_costs(fuel_data, fuel_amounts_tonnes):
     total_fuel_costs = {'min': 0, 'max': 0, 'average': 0}
@@ -37,12 +49,12 @@ def calculate_GHGi_actual(fuel_percentages, WtW_factors):
     GHGi_actual = total_GHG
     return GHGi_actual
 
-def objective_function(GHGi_actual, E_total):
+def calculate_fueleu(GHGi_actual, E_total, GHGi_target):
     CB = (GHGi_target - GHGi_actual) * E_total
     FuelEU = abs(CB) / (GHGi_actual * 41000) * 2400
     return CB, FuelEU
 
-def calculate_costs_and_penalty(fuel_amounts_tonnes, E_total):
+def calculate_costs_and_penalty(fuel_amounts_tonnes, E_total, year):
     fuel_data = load_fuel_data()
     wtw_factors = load_wtw_factors()
 
@@ -51,8 +63,11 @@ def calculate_costs_and_penalty(fuel_amounts_tonnes, E_total):
     total_fuel = sum(fuel_amounts_tonnes.values())
     fuel_percentages = {fuel: (amount / total_fuel) * 100 for fuel, amount in fuel_amounts_tonnes.items()}
     GHGi_actual = calculate_GHGi_actual(fuel_percentages, wtw_factors)
-    CB, FuelEU = objective_function(GHGi_actual, E_total)
 
-    print(f"Carbon Balance (CB): {CB:.2E} gCO2e")
+    # Example usage
+    GHGi_target = set_GHGi_target(year)
+    CB, FuelEU = calculate_fueleu(GHGi_actual, E_total, GHGi_target)
+
+    # print(f"Carbon Balance (CB): {CB:.2E} gCO2e")
     print(f"The FuelEU Penalty is: {FuelEU:.2f} €")
     return journey_fuel_costs, CB, FuelEU
