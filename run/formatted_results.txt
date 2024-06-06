@@ -1,0 +1,42 @@
+Scenario Details:
+  year: 2025
+  CO2_price: 90
+  Etotal_Intra: 546000000
+  MDO_tonnes_Intra: 1400
+  fuel_types_Intra: ['VLSFO']
+  Etotal_Inter: 546000000
+  MDO_tonnes_Inter: 1400
+  fuel_types_Inter: ['VLSFO']
+  Etotal_Berth: 50000000
+  MDO_tonnes_Berth: 1500
+
+Results Summary:
+Intra EU Results:
+Information not found
+
+Inter EU Results:
+Information not found
+
+Berth Results:
+Information not found
+Scenario Details:
+  year: 2025
+  CO2_price: 90
+  Etotal_Intra: 546000000
+  MDO_tonnes_Intra: 1400
+  fuel_types_Intra: ['VLSFO', 'BIO-DIESEL']
+  Etotal_Inter: 546000000
+  MDO_tonnes_Inter: 1400
+  fuel_types_Inter: ['VLSFO', 'BIO-DIESEL']
+  Etotal_Berth: 50000000
+  MDO_tonnes_Berth: 1500
+
+Results Summary:
+Intra EU Results:
+Information not found
+
+Inter EU Results:
+Information not found
+
+Berth Results:
+Information not found

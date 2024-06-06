@@ -1,0 +1,223 @@
+[
+    {
+        "scenario": {
+            "year": 2025,
+            "CO2_price": 90,
+            "Etotal_Intra": 546000000,
+            "MDO_tonnes_Intra": 1400,
+            "fuel_types_Intra": [
+                "VLSFO"
+            ],
+            "Etotal_Inter": 546000000,
+            "MDO_tonnes_Inter": 1400,
+            "fuel_types_Inter": [
+                "VLSFO"
+            ],
+            "Etotal_Berth": 50000000,
+            "MDO_tonnes_Berth": 1500
+        },
+        "results": {
+            "Intra": {
+                "fuel_types": [
+                    "VLSFO",
+                    "MDO"
+                ],
+                "percentages": {
+                    "VLSFO": 89.05128205128207,
+                    "MDO": 10.948717948717949
+                },
+                "amounts": {
+                    "VLSFO": 11859.024390243903,
+                    "MDO": 1400.0
+                },
+                "penalties": {
+                    "EU TS": 3825758.9,
+                    "FuelEU": 753700.35
+                },
+                "costs": {
+                    "total": 12943591.927
+                }
+            },
+            "Inter": {
+                "fuel_types": [
+                    "VLSFO",
+                    "MDO"
+                ],
+                "percentages": {
+                    "VLSFO": 89.05128205128207,
+                    "MDO": 10.948717948717949
+                },
+                "amounts": {
+                    "VLSFO": 11859.024390243903,
+                    "MDO": 1400.0
+                },
+                "penalties": {
+                    "EU TS": 3825758.9,
+                    "FuelEU": 376850.17
+                },
+                "costs": {
+                    "total": 12566741.754
+                }
+            },
+            "Berth": {
+                "penalties": {
+                    "EU TS": 432810.0,
+                    "FuelEU": 40807.62
+                },
+                "costs": {
+                    "total": 1312500.0
+                }
+            }
+        }
+    },
+    {
+        "scenario": {
+            "year": 2025,
+            "CO2_price": 90,
+            "Etotal_Intra": 546000000,
+            "MDO_tonnes_Intra": 1400,
+            "fuel_types_Intra": [
+                "VLSFO",
+                "BIO-DIESEL"
+            ],
+            "Etotal_Inter": 546000000,
+            "MDO_tonnes_Inter": 1400,
+            "fuel_types_Inter": [
+                "VLSFO",
+                "BIO-DIESEL"
+            ],
+            "Etotal_Berth": 50000000,
+            "MDO_tonnes_Berth": 1500
+        },
+        "results": {
+            "Intra": {
+                "fuel_types": [
+                    "VLSFO",
+                    "BIO-DIESEL",
+                    "MDO"
+                ],
+                "percentages": {
+                    "VLSFO": 86.5298093402552,
+                    "BIO-DIESEL": 2.521472711026831,
+                    "MDO": 10.948717948717949
+                },
+                "amounts": {
+                    "VLSFO": 11523.238024336426,
+                    "BIO-DIESEL": 370.08712371522836,
+                    "MDO": 1400.0
+                },
+                "penalties": {
+                    "EU TS": 3728871.1,
+                    "FuelEU": 0.01
+                },
+                "costs": {
+                    "total": 12301657.111
+                }
+            },
+            "Inter": {
+                "fuel_types": [
+                    "VLSFO",
+                    "BIO-DIESEL",
+                    "MDO"
+                ],
+                "percentages": {
+                    "VLSFO": 86.52980944917866,
+                    "BIO-DIESEL": 2.5214726021033864,
+                    "MDO": 10.948717948717949
+                },
+                "amounts": {
+                    "VLSFO": 11523.238038841842,
+                    "BIO-DIESEL": 370.0871077280777,
+                    "MDO": 1400.0
+                },
+                "penalties": {
+                    "EU TS": 3728871.1,
+                    "FuelEU": 0.02
+                },
+                "costs": {
+                    "total": 12301657.116
+                }
+            },
+            "Berth": {
+                "penalties": {
+                    "EU TS": 432810.0,
+                    "FuelEU": 40807.62
+                },
+                "costs": {
+                    "total": 1312500.0
+                }
+            }
+        }
+    },
+    {
+        "scenario": {
+            "year": 2025,
+            "CO2_price": 90,
+            "Etotal_Intra": 100000000,
+            "MDO_tonnes_Intra": 1200,
+            "fuel_types_Intra": [
+                "VLSFO"
+            ],
+            "Etotal_Inter": 50000000,
+            "MDO_tonnes_Inter": 600,
+            "fuel_types_Inter": [
+                "VLSFO"
+            ],
+            "Etotal_Berth": 30000000,
+            "MDO_tonnes_Berth": 700
+        },
+        "results": {
+            "Intra": {
+                "fuel_types": [
+                    "VLSFO",
+                    "MDO"
+                ],
+                "percentages": {
+                    "VLSFO": 48.76,
+                    "MDO": 51.239999999999995
+                },
+                "amounts": {
+                    "VLSFO": 1189.2682926829268,
+                    "MDO": 1200.0
+                },
+                "penalties": {
+                    "EU TS": 689399.47,
+                    "FuelEU": 113153.44
+                },
+                "costs": {
+                    "total": 2568492.428
+                }
+            },
+            "Inter": {
+                "fuel_types": [
+                    "VLSFO",
+                    "MDO"
+                ],
+                "percentages": {
+                    "VLSFO": 48.76,
+                    "MDO": 51.239999999999995
+                },
+                "amounts": {
+                    "VLSFO": 594.6341463414634,
+                    "MDO": 600.0
+                },
+                "penalties": {
+                    "EU TS": 344699.74,
+                    "FuelEU": 28288.36
+                },
+                "costs": {
+                    "total": 1255957.853
+                }
+            },
+            "Berth": {
+                "penalties": {
+                    "EU TS": 201978.0,
+                    "FuelEU": 24484.57
+                },
+                "costs": {
+                    "total": 612500.0
+                }
+            }
+        }
+    }
+]
