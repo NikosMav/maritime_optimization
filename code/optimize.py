@@ -1,4 +1,3 @@
-import argparse
 from scipy.optimize import minimize
 from fuel_calculations import calculate_costs_and_penalty, load_wtw_factors, load_fuel_data, load_fuel_density
 
