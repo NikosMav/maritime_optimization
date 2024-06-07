@@ -112,7 +112,44 @@ scenarios = [
         'Etotal_Berth': 30000000,
         'MDO_tonnes_Berth': 700
     },
-    # Additional scenarios can be added here
+    {
+        'year': 2030,
+        'CO2_price': 120,
+        'Etotal_Intra': 600000000,
+        'MDO_tonnes_Intra': 1600,
+        'fuel_types_Intra': ['BIO-DIESEL', 'LNG'],
+        'Etotal_Inter': 300000000,
+        'MDO_tonnes_Inter': 1600,
+        'fuel_types_Inter': ['BIO-DIESEL', 'LNG'],
+        'Etotal_Berth': 15000000,
+        'MDO_tonnes_Berth': 1000
+    },
+    # Scenario with a focus on alternative fuels
+    {
+        'year': 2035,
+        'CO2_price': 100,
+        'Etotal_Intra': 450000000,
+        'MDO_tonnes_Intra': 1000,
+        'fuel_types_Intra': ['LNG', 'E-METHANOL'],
+        'Etotal_Inter': 250000000,
+        'MDO_tonnes_Inter': 1000,
+        'fuel_types_Inter': ['LNG', 'E-METHANOL'],
+        'Etotal_Berth': 10000000,
+        'MDO_tonnes_Berth': 500
+    },
+    # Testing with a significantly different year and extreme CO2 price
+    {
+        'year': 2040,
+        'CO2_price': 150,
+        'Etotal_Intra': 700000000,
+        'MDO_tonnes_Intra': 1800,
+        'fuel_types_Intra': ['LNG', 'E-METHANOL'],
+        'Etotal_Inter': 400000000,
+        'MDO_tonnes_Inter': 1800,
+        'fuel_types_Inter': ['LNG', 'E-METHANOL'],
+        'Etotal_Berth': 20000000,
+        'MDO_tonnes_Berth': 1300
+    }
 ]
 
 results = []
