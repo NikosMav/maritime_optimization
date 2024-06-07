@@ -1,12 +1,12 @@
 import json
 
-# Load WtW CO2e factors from a JSON file
+# Load WtW factors
 def load_wtw_factors(filename='../json/wtw_factors.json'):
     with open(filename, 'r') as file:
         wtw_factors = json.load(file)
     return {key.upper(): value for key, value in wtw_factors.items()}
 
-# Load fuel data from JSON file
+# Load fuel data
 def load_fuel_data(filename='../json/fuel_prices.json'):
     with open(filename, 'r') as file:
         fuel_data = json.load(file)
@@ -17,26 +17,24 @@ def load_fuel_density(filename='../json/fuel_density.json'):
     with open(filename, 'r') as file:
         return json.load(file)
     
-# Load CO2 emission factors from a JSON file
+# Load CO2 emission factors
 def load_co2_emission_factors(filename='../json/co2_emission_factors.json'):
     with open(filename, 'r') as file:
         co2_factors = json.load(file)
     return {key.upper(): value for key, value in co2_factors.items()}
 
-def set_GHGi_target(year):
-    # Reference value and reduction targets
-    reference_value = 91.16
-    targets = {
-        2025: 2.0,
-        2030: 6.0,
-        2035: 14.5,
-        2040: 31.0,
-        2045: 62.0,
-        2050: 80.0,
-    }
-    reduction_percentage = targets.get(year, 0)
-    return reference_value * (1 - reduction_percentage / 100)
+# Load GHG reduction targets
+def load_ghgi_targets(filename='../json/ghgi_targets.json'):
+    with open(filename, 'r') as file:
+        ghgi_targets = json.load(file)
+    return ghgi_targets
 
+def set_GHGi_target(year):
+    ghgi_targets = load_ghgi_targets()
+    reference_value = ghgi_targets['reference_value']
+    targets = ghgi_targets['targets']
+    reduction_percentage = targets.get(str(year), 0)  # JSON keys are strings, ensure to match the type
+    return reference_value * (1 - reduction_percentage / 100)
 
 def calculate_fuel_costs(fuel_data, fuel_amounts_tonnes):
     total_fuel_costs = {'min': 0, 'max': 0, 'average': 0}
@@ -70,24 +68,6 @@ def calculate_CO2_emissions(fuel_amounts, co2_factors):
 def calculate_CO2_penalty(total_CO2_emissions, CO2_price_per_ton):
     CO2_penalty = total_CO2_emissions * CO2_price_per_ton
     return CO2_penalty
-
-# def calculate_costs_and_penalty(fuel_amounts_tonnes, E_total, year):
-#     fuel_data = load_fuel_data()
-#     wtw_factors = load_wtw_factors()
-
-#     journey_fuel_costs = calculate_fuel_costs(fuel_data, fuel_amounts_tonnes)
-
-#     total_fuel = sum(fuel_amounts_tonnes.values())
-#     fuel_percentages = {fuel: (amount / total_fuel) * 100 for fuel, amount in fuel_amounts_tonnes.items()}
-#     GHGi_actual = calculate_GHGi_actual(fuel_percentages, wtw_factors)
-
-#     # Example usage
-#     GHGi_target = set_GHGi_target(year)
-#     CB, FuelEU = calculate_fueleu(GHGi_actual, E_total, GHGi_target)
-
-#     # print(f"Carbon Balance (CB): {CB:.2E} gCO2e")
-#     print(f"The FuelEU Penalty is: {FuelEU:.2f} €")
-#     return journey_fuel_costs, CB, FuelEU
 
 def calculate_costs_and_penalty(fuel_amounts_tonnes, E_total, year, CO2_price_per_ton):
     fuel_data = load_fuel_data()

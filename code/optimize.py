@@ -48,9 +48,16 @@ def find_optimal_fuel_mix(E_total, selected_fuels, MDO_tonnes, trip_type, year, 
     total_energy = sum(energy_contents.values())
     actual_percentages = {fuel: (energy_contents[fuel] / total_energy) * 100 for fuel in energy_contents}
 
+    # Halve the Etotal for inter 
     if trip_type == "inter-eu":
-        E_total = E_total / 2
+        E_total *= 0.5
+
+    # Get the penalties
     _, _, FuelEU, CO2_penalty = calculate_costs_and_penalty(fuel_amounts, E_total, year, CO2_price_per_ton)
+
+    # Halve the EU TS for inter
+    if trip_type == "inter-eu":
+        CO2_penalty *= 0.5
 
     print(f"For {trip_type}:")
     print(f"Optimal fuel types {trip_type}:", selected_fuels + [fixed_fuel])
