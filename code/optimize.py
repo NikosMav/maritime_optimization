@@ -1,10 +1,8 @@
 from scipy.optimize import minimize
-from fuel_calculations import calculate_costs_and_penalty, load_wtw_factors, load_fuel_data, load_fuel_density
+from fuel_calculations import calculate_costs_and_penalty, load_fuel_density
 
 # Pre-load all necessary data
 fuel_density = load_fuel_density()
-wtw_factors = load_wtw_factors()
-fuel_data = load_fuel_data()
 
 def calculate_fuel_amounts(percentages, E_total, densities, fixed_fuel, fixed_amount):
     fuel_amounts = {}

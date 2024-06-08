@@ -36,11 +36,22 @@ def set_GHGi_target(year):
     reduction_percentage = targets.get(str(year), 0)  # JSON keys are strings, ensure to match the type
     return reference_value * (1 - reduction_percentage / 100)
 
-def calculate_fuel_costs(fuel_data, fuel_amounts_tonnes):
+def calculate_fuel_costs(fuel_data, fuel_amounts_tonnes, year):
     total_fuel_costs = {'min': 0, 'max': 0, 'average': 0}
     for fuel_type, fuel_tonnes in fuel_amounts_tonnes.items():
         if fuel_type in fuel_data:
-            prices = fuel_data[fuel_type]
+            # Try to get year-specific prices first
+            prices = fuel_data[fuel_type].get(str(year))
+            
+            # If year-specific prices aren't available, use generic prices
+            if not prices:
+                if 'price_min' in fuel_data[fuel_type]:
+                    # Generic prices exist
+                    prices = fuel_data[fuel_type]
+                else:
+                    # No generic price; handle error
+                    raise ValueError(f"No price data available for '{year}' or generic for '{fuel_type}'.")
+            
             total_fuel_costs['min'] += prices['price_min'] * fuel_tonnes
             total_fuel_costs['max'] += prices['price_max'] * fuel_tonnes
             total_fuel_costs['average'] += ((prices['price_min'] + prices['price_max']) / 2) * fuel_tonnes
@@ -55,7 +66,11 @@ def calculate_GHGi_actual(fuel_percentages, WtW_factors):
 
 def calculate_fueleu(GHGi_actual, E_total, GHGi_target):
     CB = (GHGi_target - GHGi_actual) * E_total
-    FuelEU = abs(CB) / (GHGi_actual * 41000) * 2400
+    # Only calculate FuelEU penalty if CB is negative (non-compliant)
+    if CB < 0:
+        FuelEU = abs(CB) / (GHGi_actual * 41000) * 2400
+    else:
+        FuelEU = 0  # No penalty if compliant or better
     return CB, FuelEU
 
 def calculate_CO2_emissions(fuel_amounts, co2_factors):
@@ -74,17 +89,17 @@ def calculate_costs_and_penalty(fuel_amounts_tonnes, E_total, year, CO2_price_pe
     wtw_factors = load_wtw_factors()
     co2_factors = load_co2_emission_factors()
 
-    journey_fuel_costs = calculate_fuel_costs(fuel_data, fuel_amounts_tonnes)
+    # Include the year parameter when calculating fuel costs
+    journey_fuel_costs = calculate_fuel_costs(fuel_data, fuel_amounts_tonnes, year)
     total_CO2_emissions = calculate_CO2_emissions(fuel_amounts_tonnes, co2_factors)
     CO2_penalty = calculate_CO2_penalty(total_CO2_emissions, CO2_price_per_ton)
-    #print(f"The EU TS Penalty is: {CO2_penalty:.2f} €")
 
     total_fuel = sum(fuel_amounts_tonnes.values())
     fuel_percentages = {fuel: (amount / total_fuel) * 100 for fuel, amount in fuel_amounts_tonnes.items()}
     GHGi_actual = calculate_GHGi_actual(fuel_percentages, wtw_factors)
     GHGi_target = set_GHGi_target(year)
     CB, FuelEU = calculate_fueleu(GHGi_actual, E_total, GHGi_target)
-    #print(f"The FuelEU Penalty is: {FuelEU:.2f} €")
 
     return journey_fuel_costs, CB, FuelEU, CO2_penalty
+
 

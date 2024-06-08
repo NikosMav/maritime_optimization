@@ -99,6 +99,17 @@ scenarios = [
         'fuel_types_Inter': ['VLSFO', 'BIO-DIESEL'],
         'Etotal_Berth': 50000000,
         'MDO_tonnes_Berth': 1500
+    },{
+        'year': 2050,
+        'CO2_price': 150,
+        'Etotal_Intra': 546000000,
+        'MDO_tonnes_Intra': 1200,
+        'fuel_types_Intra': ['VLSFO', 'BIO-DIESEL'],
+        'Etotal_Inter': 546000000,
+        'MDO_tonnes_Inter': 1200,
+        'fuel_types_Inter': ['VLSFO', 'BIO-DIESEL'],
+        'Etotal_Berth': 50000000,
+        'MDO_tonnes_Berth': 1500
     },
     {
         'year': 2025,
