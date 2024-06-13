@@ -99,7 +99,8 @@ scenarios = [
         'fuel_types_Inter': ['VLSFO', 'BIO-DIESEL'],
         'Etotal_Berth': 50000000,
         'MDO_tonnes_Berth': 1500
-    },{
+    },
+    {
         'year': 2050,
         'CO2_price': 150,
         'Etotal_Intra': 546000000,
@@ -160,6 +161,90 @@ scenarios = [
         'fuel_types_Inter': ['LNG', 'E-METHANOL'],
         'Etotal_Berth': 20000000,
         'MDO_tonnes_Berth': 1300
+    },
+    {
+        "year": 2028,
+        "CO2_price": 110,
+        "Etotal_Intra": 550000000,
+        "MDO_tonnes_Intra": 1500,
+        "fuel_types_Intra": ["BIO-DIESEL", "E-METHANOL"],
+        "Etotal_Inter": 550000000,
+        "MDO_tonnes_Inter": 1500,
+        "fuel_types_Inter": ["BIO-DIESEL", "E-METHANOL"],
+        "Etotal_Berth": 60000000,
+        "MDO_tonnes_Berth": 1600
+    },
+    {
+        "year": 2045,
+        "CO2_price": 180,
+        "Etotal_Intra": 800000000,
+        "MDO_tonnes_Intra": 2000,
+        "fuel_types_Intra": ["E-METHANOL", "LNG"],
+        "Etotal_Inter": 800000000,
+        "MDO_tonnes_Inter": 2000,
+        "fuel_types_Inter": ["E-METHANOL", "LNG"],
+        "Etotal_Berth": 25000000,
+        "MDO_tonnes_Berth": 2000
+    },
+    {
+        "year": 2032,
+        "CO2_price": 140,
+        "Etotal_Intra": 600000000,
+        "MDO_tonnes_Intra": 1700,
+        "fuel_types_Intra": ["LNG", "VLSFO"],
+        "Etotal_Inter": 300000000,
+        "MDO_tonnes_Inter": 1700,
+        "fuel_types_Inter": ["LNG", "VLSFO"],
+        "Etotal_Berth": 20000000,
+        "MDO_tonnes_Berth": 1100
+    },
+    {
+        'year': 2030,
+        'CO2_price': 120,
+        'Etotal_Intra': 600000000,
+        'MDO_tonnes_Intra': 1600,
+        'fuel_types_Intra': ['LNG'],
+        'Etotal_Inter': 300000000,
+        'MDO_tonnes_Inter': 1600,
+        'fuel_types_Inter': ['LNG'],
+        'Etotal_Berth': 15000000,
+        'MDO_tonnes_Berth': 1000
+    },
+    {
+        'year': 2035,
+        'CO2_price': 100,
+        'Etotal_Intra': 450000000,
+        'MDO_tonnes_Intra': 1000,
+        'fuel_types_Intra': ['E-METHANOL'],
+        'Etotal_Inter': 250000000,
+        'MDO_tonnes_Inter': 1000,
+        'fuel_types_Inter': ['E-METHANOL'],
+        'Etotal_Berth': 10000000,
+        'MDO_tonnes_Berth': 500
+    },
+    {
+        'year': 2050,
+        'CO2_price': 160,
+        'Etotal_Intra': 546000000,
+        'MDO_tonnes_Intra': 1400,
+        'fuel_types_Intra': ['VLSFO'],
+        'Etotal_Inter': 546000000,
+        'MDO_tonnes_Inter': 1400,
+        'fuel_types_Inter': ['VLSFO'],
+        'Etotal_Berth': 50000000,
+        'MDO_tonnes_Berth': 1500
+    },
+    {
+        'year': 2050,
+        'CO2_price': 160,
+        'Etotal_Intra': 546000000,
+        'MDO_tonnes_Intra': 1400,
+        'fuel_types_Intra': ['VLSFO', 'BIO-DIESEL'],
+        'Etotal_Inter': 546000000,
+        'MDO_tonnes_Inter': 1400,
+        'fuel_types_Inter': ['VLSFO', 'BIO-DIESEL'],
+        'Etotal_Berth': 50000000,
+        'MDO_tonnes_Berth': 1500
     }
 ]
 
