@@ -2,6 +2,7 @@ import subprocess
 import json
 import ast
 
+# Function to run a scenario
 def run_scenario(scenario):
     cmd = ['python', '../code/optimize.py']
     process = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
@@ -28,17 +29,11 @@ def run_scenario(scenario):
 
     return parse_output(output)
 
-import ast
-
+# Function to parse the output from optimize.py
 def parse_output(output):
-    results = {
-        "Intra": {},
-        "Inter": {},
-        "Berth": {}
-    }
-
+    results = {"Intra": {}, "Inter": {}, "Berth": {}}
     lines = output.splitlines()
-    scenario_type = None  # Used to track the current scenario type
+    scenario_type = None
 
     for line in lines:
         line = line.strip()
@@ -58,207 +53,79 @@ def parse_output(output):
             elif "Optimal fuel amounts" in line:
                 amounts = line.split(':', 1)[1].strip()
                 results[scenario_type]["amounts"] = ast.literal_eval(amounts)
-            elif "EU TS Penalty" in line:
+            elif "EU TS Penalty" in line or "FuelEU Penalty" in line:
+                penalty_key = "EU TS" if "EU TS" in line else "FuelEU"
                 penalty_value = float(line.split(':')[1].strip().split('€')[0])
                 results[scenario_type]["penalties"] = results[scenario_type].get("penalties", {})
-                results[scenario_type]["penalties"]["EU TS"] = penalty_value
-            elif "FuelEU Penalty" in line:
-                penalty_value = float(line.split(':')[1].strip().split('€')[0])
-                results[scenario_type]["penalties"] = results[scenario_type].get("penalties", {})
-                results[scenario_type]["penalties"]["FuelEU"] = penalty_value
+                results[scenario_type]["penalties"][penalty_key] = penalty_value
             elif "Optimal total cost" in line or "Total cost" in line:
                 cost = float(line.split(':')[1].strip().split('€')[0])
                 results[scenario_type]["costs"] = {"total": cost}
 
     return results
 
-
-
-# Define scenarios
-scenarios = [
+# Base scenarios without year and CO2_price
+base_scenarios = [
     {
-        'year': 2025,
-        'CO2_price': 90,
-        'Etotal_Intra': 546000000,
-        'MDO_tonnes_Intra': 1400,
+        'Etotal_Intra': 300000000,
+        'Etotal_Inter': 150000000,
+        'Etotal_Berth': 70000000,
+        'MDO_tonnes_Intra': 1500,
+        'MDO_tonnes_Inter': 800,
+        'MDO_tonnes_Berth': 1000,
         'fuel_types_Intra': ['VLSFO'],
-        'Etotal_Inter': 546000000,
-        'MDO_tonnes_Inter': 1400,
-        'fuel_types_Inter': ['VLSFO'],
-        'Etotal_Berth': 50000000,
-        'MDO_tonnes_Berth': 1500
+        'fuel_types_Inter': ['VLSFO']
     },
     {
-        'year': 2025,
-        'CO2_price': 90,
-        'Etotal_Intra': 546000000,
-        'MDO_tonnes_Intra': 1400,
-        'fuel_types_Intra': ['VLSFO', 'BIO-DIESEL'],
-        'Etotal_Inter': 546000000,
-        'MDO_tonnes_Inter': 1400,
-        'fuel_types_Inter': ['VLSFO', 'BIO-DIESEL'],
-        'Etotal_Berth': 50000000,
-        'MDO_tonnes_Berth': 1500
-    },
-    {
-        'year': 2050,
-        'CO2_price': 150,
-        'Etotal_Intra': 546000000,
-        'MDO_tonnes_Intra': 1200,
-        'fuel_types_Intra': ['VLSFO', 'BIO-DIESEL'],
-        'Etotal_Inter': 546000000,
-        'MDO_tonnes_Inter': 1200,
-        'fuel_types_Inter': ['VLSFO', 'BIO-DIESEL'],
-        'Etotal_Berth': 50000000,
-        'MDO_tonnes_Berth': 1500
-    },
-    {
-        'year': 2025,
-        'CO2_price': 90,
         'Etotal_Intra': 100000000,
-        'MDO_tonnes_Intra': 1200,
-        'fuel_types_Intra': ['VLSFO'],
         'Etotal_Inter': 50000000,
-        'MDO_tonnes_Inter': 600,
-        'fuel_types_Inter': ['VLSFO'],
         'Etotal_Berth': 30000000,
-        'MDO_tonnes_Berth': 700
-    },
-    {
-        'year': 2030,
-        'CO2_price': 120,
-        'Etotal_Intra': 600000000,
-        'MDO_tonnes_Intra': 1600,
-        'fuel_types_Intra': ['BIO-DIESEL', 'LNG'],
-        'Etotal_Inter': 300000000,
-        'MDO_tonnes_Inter': 1600,
-        'fuel_types_Inter': ['BIO-DIESEL', 'LNG'],
-        'Etotal_Berth': 15000000,
-        'MDO_tonnes_Berth': 1000
-    },
-    # Scenario with a focus on alternative fuels
-    {
-        'year': 2035,
-        'CO2_price': 100,
-        'Etotal_Intra': 450000000,
-        'MDO_tonnes_Intra': 1000,
-        'fuel_types_Intra': ['LNG', 'E-METHANOL'],
-        'Etotal_Inter': 250000000,
-        'MDO_tonnes_Inter': 1000,
-        'fuel_types_Inter': ['LNG', 'E-METHANOL'],
-        'Etotal_Berth': 10000000,
-        'MDO_tonnes_Berth': 500
-    },
-    # Testing with a significantly different year and extreme CO2 price
-    {
-        'year': 2040,
-        'CO2_price': 150,
-        'Etotal_Intra': 700000000,
-        'MDO_tonnes_Intra': 1800,
-        'fuel_types_Intra': ['LNG', 'E-METHANOL'],
-        'Etotal_Inter': 400000000,
-        'MDO_tonnes_Inter': 1800,
-        'fuel_types_Inter': ['LNG', 'E-METHANOL'],
-        'Etotal_Berth': 20000000,
-        'MDO_tonnes_Berth': 1300
-    },
-    {
-        "year": 2028,
-        "CO2_price": 110,
-        "Etotal_Intra": 550000000,
-        "MDO_tonnes_Intra": 1500,
-        "fuel_types_Intra": ["BIO-DIESEL", "E-METHANOL"],
-        "Etotal_Inter": 550000000,
-        "MDO_tonnes_Inter": 1500,
-        "fuel_types_Inter": ["BIO-DIESEL", "E-METHANOL"],
-        "Etotal_Berth": 60000000,
-        "MDO_tonnes_Berth": 1600
-    },
-    {
-        "year": 2045,
-        "CO2_price": 180,
-        "Etotal_Intra": 800000000,
-        "MDO_tonnes_Intra": 2000,
-        "fuel_types_Intra": ["E-METHANOL", "LNG"],
-        "Etotal_Inter": 800000000,
-        "MDO_tonnes_Inter": 2000,
-        "fuel_types_Inter": ["E-METHANOL", "LNG"],
-        "Etotal_Berth": 25000000,
-        "MDO_tonnes_Berth": 2000
-    },
-    {
-        "year": 2032,
-        "CO2_price": 140,
-        "Etotal_Intra": 600000000,
-        "MDO_tonnes_Intra": 1700,
-        "fuel_types_Intra": ["LNG", "VLSFO"],
-        "Etotal_Inter": 300000000,
-        "MDO_tonnes_Inter": 1700,
-        "fuel_types_Inter": ["LNG", "VLSFO"],
-        "Etotal_Berth": 20000000,
-        "MDO_tonnes_Berth": 1100
-    },
-    {
-        'year': 2030,
-        'CO2_price': 120,
-        'Etotal_Intra': 600000000,
-        'MDO_tonnes_Intra': 1600,
-        'fuel_types_Intra': ['LNG'],
-        'Etotal_Inter': 300000000,
-        'MDO_tonnes_Inter': 1600,
-        'fuel_types_Inter': ['LNG'],
-        'Etotal_Berth': 15000000,
-        'MDO_tonnes_Berth': 1000
-    },
-    {
-        'year': 2035,
-        'CO2_price': 100,
-        'Etotal_Intra': 450000000,
-        'MDO_tonnes_Intra': 1000,
-        'fuel_types_Intra': ['E-METHANOL'],
-        'Etotal_Inter': 250000000,
-        'MDO_tonnes_Inter': 1000,
-        'fuel_types_Inter': ['E-METHANOL'],
-        'Etotal_Berth': 10000000,
-        'MDO_tonnes_Berth': 500
-    },
-    {
-        'year': 2050,
-        'CO2_price': 160,
-        'Etotal_Intra': 546000000,
-        'MDO_tonnes_Intra': 1400,
-        'fuel_types_Intra': ['VLSFO'],
-        'Etotal_Inter': 546000000,
-        'MDO_tonnes_Inter': 1400,
-        'fuel_types_Inter': ['VLSFO'],
-        'Etotal_Berth': 50000000,
-        'MDO_tonnes_Berth': 1500
-    },
-    {
-        'year': 2050,
-        'CO2_price': 160,
-        'Etotal_Intra': 546000000,
-        'MDO_tonnes_Intra': 1400,
+        'MDO_tonnes_Intra': 1200,
+        'MDO_tonnes_Inter': 600,
+        'MDO_tonnes_Berth': 700,
         'fuel_types_Intra': ['VLSFO', 'BIO-DIESEL'],
-        'Etotal_Inter': 546000000,
-        'MDO_tonnes_Inter': 1400,
-        'fuel_types_Inter': ['VLSFO', 'BIO-DIESEL'],
-        'Etotal_Berth': 50000000,
-        'MDO_tonnes_Berth': 1500
+        'fuel_types_Inter': ['VLSFO', 'BIO-DIESEL']
+    },
+    {
+        'Etotal_Intra': 45000000,
+        'Etotal_Inter': 30000000,
+        'Etotal_Berth': 17000000,
+        'MDO_tonnes_Intra': 1000,
+        'MDO_tonnes_Inter': 500,
+        'MDO_tonnes_Berth': 600,
+        'fuel_types_Intra': ['LNG'],
+        'fuel_types_Inter': ['LNG']
+    },
+    {
+        'Etotal_Intra': 30000000,
+        'Etotal_Inter': 15000000,
+        'Etotal_Berth': 7000000,
+        'MDO_tonnes_Intra': 600,
+        'MDO_tonnes_Inter': 300,
+        'MDO_tonnes_Berth': 350,
+        'fuel_types_Intra': ['E-METHANOL'],
+        'fuel_types_Inter': ['E-METHANOL']
     }
 ]
 
+# Results list
 results = []
 
-for scenario in scenarios:
-    print(f"Running scenario: {scenario['year']} with CO2 price {scenario['CO2_price']}, Etotal_Intra {scenario['Etotal_Intra']}, Etotal_Inter {scenario['Etotal_Inter']}, Etotal_Berth {scenario['Etotal_Berth']}")
-    result = run_scenario(scenario)
-    results.append({
-        'scenario': scenario,
-        'results': result
-    })
+# Iterate over years and CO2 prices
+for year in range(2025, 2051, 5):  # every 5 years
+    for CO2_price in range(90, 191, 20):  # varying CO2 prices
+        for base_scenario in base_scenarios:
+            scenario = {**base_scenario, 'year': year, 'CO2_price': CO2_price}
+            print(f"Running scenario for year {year} with CO2 price {CO2_price}")
+            scenario_result = run_scenario(scenario)
+            results.append({
+                'year': year,
+                'CO2_price': CO2_price,
+                'scenario': scenario,
+                'results': scenario_result
+            })
 
-# Save the results to a JSON file for later analysis
+# Save the results to a JSON file
 with open('optimization_results.json', 'w') as f:
     json.dump(results, f, indent=4)
 
