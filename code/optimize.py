@@ -22,13 +22,13 @@ def objective_function(x, E_total, fuel_types, densities, fixed_fuel, fixed_amou
     if trip_type == "inter-eu":
         E_total *= 0.5
 
-    journey_fuel_costs, _, Fuel_EU_Penalty, EU_TS_Penalty  = calculate_costs_and_penalties(fuel_amounts, E_total, year, CO2_price_per_ton)
+    journey_fuel_costs, _, Fuel_EU_Penalty, EU_TS_Penalty = calculate_costs_and_penalties(fuel_amounts, E_total, year, CO2_price_per_ton)
 
     # Halve EU_TS_Penalty for inter-eu
     if trip_type == "inter-eu":
         EU_TS_Penalty *= 0.5
 
-    # Sum Fuel costs, Fuel_EU_Penalty and EU_TS_Penalty
+    # Sum Fuel costs, Fuel_EU_Penalty, and EU_TS_Penalty
     return journey_fuel_costs['average'] + Fuel_EU_Penalty + EU_TS_Penalty
 
 def find_optimal_fuel_mix(E_total, selected_fuels, MDO_tonnes, trip_type, year, CO2_price_per_ton):

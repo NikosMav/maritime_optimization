@@ -2,29 +2,55 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Load the data
-data = pd.read_csv('../run/output_results.csv')
+df = pd.read_csv('../run/output_results.csv')
 
-# Convert 'year' to a datetime type if necessary
-data['year'] = pd.to_datetime(data['year'], format='%Y')
+# Function to plot total cost over years for different CO2 prices for each scenario
+def plot_total_cost(df, scenario_num):
+    plt.figure(figsize=(12, 8))
+    subset = df[df['scenario'] == scenario_num]
+    for CO2_price in subset['CO2_price'].unique():
+        data = subset[subset['CO2_price'] == CO2_price]
+        plt.plot(data['year'], data['total_cost'], label=f'CO2 Price: {CO2_price}€')
+    plt.xlabel('Year')
+    plt.ylabel('Total Cost (€)')
+    plt.title(f'Scenario {scenario_num + 1}: Total Cost over Years for Different CO2 Prices')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
 
-# Plotting Total Costs Over Time by Scenario
-fig, ax = plt.subplots()
-for label, df in data.groupby('location'):
-    df.groupby('year')['total_cost'].mean().plot(ax=ax, label=label)
-ax.set_title('Total Costs Over Time by Scenario')
-ax.set_xlabel('Year')
-ax.set_ylabel('Average Total Cost')
-ax.legend()
-plt.show()
+# Function to plot EU TS penalty over years for different CO2 prices for each scenario
+def plot_eu_ts_penalty(df, scenario_num):
+    plt.figure(figsize=(12, 8))
+    subset = df[df['scenario'] == scenario_num]
+    for CO2_price in subset['CO2_price'].unique():
+        data = subset[subset['CO2_price'] == CO2_price]
+        plt.plot(data['year'], data['EU_TS_penalty'], label=f'CO2 Price: {CO2_price}€')
+    plt.xlabel('Year')
+    plt.ylabel('EU TS Penalty (€)')
+    plt.title(f'Scenario {scenario_num + 1}: EU TS Penalty over Years for Different CO2 Prices')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
 
-# Plotting Penalties Over Time by Scenario
-fig, ax = plt.subplots()
-for label, df in data.groupby('location'):
-    df.groupby('year')[['EU_TS_penalty', 'FuelEU_penalty']].sum().plot(kind='bar', ax=ax, stacked=True)
-ax.set_title('Penalties Over Time by Scenario')
-ax.set_xlabel('Year')
-ax.set_ylabel('Penalties')
-ax.legend(['EU TS', 'FuelEU'])
-plt.show()
+# Function to plot FuelEU penalty over years for different CO2 prices for each scenario
+def plot_fueleu_penalty(df, scenario_num):
+    plt.figure(figsize=(12, 8))
+    subset = df[df['scenario'] == scenario_num]
+    for CO2_price in subset['CO2_price'].unique():
+        data = subset[subset['CO2_price'] == CO2_price]
+        plt.plot(data['year'], data['FuelEU_penalty'], label=f'CO2 Price: {CO2_price}€')
+    plt.xlabel('Year')
+    plt.ylabel('FuelEU Penalty (€)')
+    plt.title(f'Scenario {scenario_num + 1}: FuelEU Penalty over Years for Different CO2 Prices')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
 
-# Additional plots based on your specific data structure and requirements can be added here
+# Add scenario numbers to the DataFrame
+df['scenario'] = df.groupby(['year', 'CO2_price']).cumcount()
+
+# Generate the plots for each scenario
+for scenario_num in range(4):
+    plot_total_cost(df, scenario_num)
+    plot_eu_ts_penalty(df, scenario_num)
+    plot_fueleu_penalty(df, scenario_num)

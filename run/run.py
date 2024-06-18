@@ -63,6 +63,23 @@ def parse_output(output):
 
     return results
 
+# Function to calculate total costs and penalties
+def calculate_total_costs_and_penalties(results):
+    total_costs = 0
+    total_penalties = {
+        "EU TS": 0,
+        "FuelEU": 0
+    }
+
+    for trip_type in results:
+        if "costs" in results[trip_type]:
+            total_costs += results[trip_type]["costs"]["total"]
+        if "penalties" in results[trip_type]:
+            for penalty_type in results[trip_type]["penalties"]:
+                total_penalties[penalty_type] += results[trip_type]["penalties"][penalty_type]
+
+    return total_costs, total_penalties
+
 # Base scenarios without year and CO2_price
 base_scenarios = [
     {
@@ -113,6 +130,16 @@ for year in range(2025, 2051, 5):  # every 5 years
             scenario = {**base_scenario, 'year': year, 'CO2_price': CO2_price}
             print(f"Running scenario for year {year} with CO2 price {CO2_price}")
             scenario_result = run_scenario(scenario)
+
+            # Calculate total costs and penalties
+            total_costs, total_penalties = calculate_total_costs_and_penalties(scenario_result)
+
+            # Add summed up cost and penalties to the results
+            scenario_result['Total'] = {
+                'costs': total_costs,
+                'penalties': total_penalties
+            }
+
             results.append({
                 'year': year,
                 'CO2_price': CO2_price,
