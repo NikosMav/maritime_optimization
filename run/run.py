@@ -20,7 +20,6 @@ def run_scenario(scenario):
         f"{len(scenario['fuel_types_Inter'])}\n"
         + "\n".join(scenario['fuel_types_Inter']) + "\n"
         f"{scenario['Etotal_Berth']}\n"
-        f"{scenario['MDO_tonnes_Berth']}\n"
     )
 
     output, errors = process.communicate(input=inputs)
@@ -72,7 +71,6 @@ base_scenarios = [
         'Etotal_Berth': 70000000,
         'MDO_tonnes_Intra': 1500,
         'MDO_tonnes_Inter': 800,
-        'MDO_tonnes_Berth': 1000,
         'fuel_types_Intra': ['VLSFO'],
         'fuel_types_Inter': ['VLSFO']
     },
@@ -82,7 +80,6 @@ base_scenarios = [
         'Etotal_Berth': 30000000,
         'MDO_tonnes_Intra': 1200,
         'MDO_tonnes_Inter': 600,
-        'MDO_tonnes_Berth': 700,
         'fuel_types_Intra': ['VLSFO', 'BIO-DIESEL'],
         'fuel_types_Inter': ['VLSFO', 'BIO-DIESEL']
     },
@@ -92,7 +89,6 @@ base_scenarios = [
         'Etotal_Berth': 17000000,
         'MDO_tonnes_Intra': 1000,
         'MDO_tonnes_Inter': 500,
-        'MDO_tonnes_Berth': 600,
         'fuel_types_Intra': ['LNG'],
         'fuel_types_Inter': ['LNG']
     },
@@ -102,7 +98,6 @@ base_scenarios = [
         'Etotal_Berth': 7000000,
         'MDO_tonnes_Intra': 600,
         'MDO_tonnes_Inter': 300,
-        'MDO_tonnes_Berth': 350,
         'fuel_types_Intra': ['E-METHANOL'],
         'fuel_types_Inter': ['E-METHANOL']
     }

@@ -64,14 +64,14 @@ def calculate_GHGi_actual(fuel_percentages, WtW_factors):
     GHGi_actual = total_GHG
     return GHGi_actual
 
-def calculate_fueleu(GHGi_actual, E_total, GHGi_target):
+def calculate_Fuel_EU_Penalty(GHGi_actual, E_total, GHGi_target):
     CB = (GHGi_target - GHGi_actual) * E_total
     # Only calculate FuelEU penalty if CB is negative (non-compliant)
     if CB < 0:
-        FuelEU = abs(CB) / (GHGi_actual * 41000) * 2400
+        Fuel_EU_Penalty = abs(CB) / (GHGi_actual * 41000) * 2400
     else:
-        FuelEU = 0  # No penalty if compliant or better
-    return CB, FuelEU
+        Fuel_EU_Penalty = 0  # No penalty if compliant or better
+    return CB, Fuel_EU_Penalty
 
 def calculate_CO2_emissions(fuel_amounts, co2_factors):
     total_CO2_emissions = 0
@@ -80,11 +80,11 @@ def calculate_CO2_emissions(fuel_amounts, co2_factors):
         total_CO2_emissions += co2_factors.get(fuel.upper(), 0) * amount
     return total_CO2_emissions
 
-def calculate_CO2_penalty(total_CO2_emissions, CO2_price_per_ton):
-    CO2_penalty = total_CO2_emissions * CO2_price_per_ton
-    return CO2_penalty
+def calculate_EU_TS_Penalty(total_CO2_emissions, CO2_price_per_ton):
+    EU_TS_Penalty = total_CO2_emissions * CO2_price_per_ton
+    return EU_TS_Penalty
 
-def calculate_costs_and_penalty(fuel_amounts_tonnes, E_total, year, CO2_price_per_ton):
+def calculate_costs_and_penalties(fuel_amounts_tonnes, E_total, year, CO2_price_per_ton):
     fuel_data = load_fuel_data()
     wtw_factors = load_wtw_factors()
     co2_factors = load_co2_emission_factors()
@@ -92,14 +92,14 @@ def calculate_costs_and_penalty(fuel_amounts_tonnes, E_total, year, CO2_price_pe
     # Include the year parameter when calculating fuel costs
     journey_fuel_costs = calculate_fuel_costs(fuel_data, fuel_amounts_tonnes, year)
     total_CO2_emissions = calculate_CO2_emissions(fuel_amounts_tonnes, co2_factors)
-    CO2_penalty = calculate_CO2_penalty(total_CO2_emissions, CO2_price_per_ton)
+    EU_TS_Penalty = calculate_EU_TS_Penalty(total_CO2_emissions, CO2_price_per_ton)
 
     total_fuel = sum(fuel_amounts_tonnes.values())
     fuel_percentages = {fuel: (amount / total_fuel) * 100 for fuel, amount in fuel_amounts_tonnes.items()}
     GHGi_actual = calculate_GHGi_actual(fuel_percentages, wtw_factors)
     GHGi_target = set_GHGi_target(year)
-    CB, FuelEU = calculate_fueleu(GHGi_actual, E_total, GHGi_target)
+    CB, Fuel_EU_Penalty = calculate_Fuel_EU_Penalty(GHGi_actual, E_total, GHGi_target)
 
-    return journey_fuel_costs, CB, FuelEU, CO2_penalty
+    return journey_fuel_costs, CB, Fuel_EU_Penalty, EU_TS_Penalty
 
 

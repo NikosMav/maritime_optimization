@@ -8,7 +8,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -58,16 +57,16 @@
                     "FuelEU": 98115.02
                 },
                 "costs": {
-                    "total": 3423269.552
+                    "total": 2901082.527
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 288540.0,
+                    "EU TS": 469716.28,
                     "FuelEU": 57130.67
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -81,7 +80,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -125,13 +123,13 @@
                     "MDO"
                 ],
                 "percentages": {
-                    "VLSFO": 45.81963729366988,
-                    "BIO-DIESEL": 2.5803627063301184,
+                    "VLSFO": 45.819637212869495,
+                    "BIO-DIESEL": 2.580362787130504,
                     "MDO": 51.6
                 },
                 "amounts": {
-                    "VLSFO": 558.7760645569498,
-                    "BIO-DIESEL": 26.878778190938736,
+                    "VLSFO": 558.7760635715792,
+                    "BIO-DIESEL": 26.878779032609415,
                     "MDO": 600.0
                 },
                 "penalties": {
@@ -139,16 +137,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 1181762.163
+                    "total": 1014585.54
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 201978.0,
+                    "EU TS": 201306.98,
                     "FuelEU": 24484.57
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -162,7 +160,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -212,16 +209,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 827540.27
+                    "total": 726976.216
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 173124.0,
+                    "EU TS": 114073.95,
                     "FuelEU": 13874.59
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -235,7 +232,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -285,16 +281,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 470454.211
+                    "total": 427173.211
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 100989.0,
+                    "EU TS": 46971.63,
                     "FuelEU": 5713.07
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -308,7 +304,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -358,16 +353,16 @@
                     "FuelEU": 98115.02
                 },
                 "costs": {
-                    "total": 3655352.674
+                    "total": 3017124.088
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 352660.0,
+                    "EU TS": 574097.67,
                     "FuelEU": 57130.67
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -381,7 +376,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -425,30 +419,30 @@
                     "MDO"
                 ],
                 "percentages": {
-                    "VLSFO": 4.8559058996033856e-12,
-                    "BIO-DIESEL": 48.39999999999514,
+                    "VLSFO": 45.8196369541933,
+                    "BIO-DIESEL": 2.5803630458066986,
                     "MDO": 51.6
                 },
                 "amounts": {
-                    "VLSFO": 5.921836462930958e-11,
-                    "BIO-DIESEL": 504.16666666661604,
+                    "VLSFO": 558.7760604169915,
+                    "BIO-DIESEL": 26.87878172715311,
                     "MDO": 600.0
                 },
                 "penalties": {
-                    "EU TS": 105798.0,
+                    "EU TS": 204326.98,
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 1241887.667
+                    "total": 1051735.901
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 246862.0,
+                    "EU TS": 246041.86,
                     "FuelEU": 24484.57
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -462,7 +456,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -512,16 +505,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 872235.405
+                    "total": 749323.784
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 211596.0,
+                    "EU TS": 139423.72,
                     "FuelEU": 13874.59
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -535,7 +528,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -585,16 +577,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 489690.211
+                    "total": 436791.211
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 123431.0,
+                    "EU TS": 57409.77,
                     "FuelEU": 5713.07
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -608,7 +600,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -658,16 +649,16 @@
                     "FuelEU": 98115.02
                 },
                 "costs": {
-                    "total": 3887435.796
+                    "total": 3133165.649
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 416780.0,
+                    "EU TS": 678479.07,
                     "FuelEU": 57130.67
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -681,7 +672,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -725,30 +715,30 @@
                     "MDO"
                 ],
                 "percentages": {
-                    "VLSFO": 0.0,
-                    "BIO-DIESEL": 48.4,
+                    "VLSFO": 45.819637349925756,
+                    "BIO-DIESEL": 2.580362650074243,
                     "MDO": 51.6
                 },
                 "amounts": {
-                    "VLSFO": 0.0,
-                    "BIO-DIESEL": 504.1666666666667,
+                    "VLSFO": 558.776065242997,
+                    "BIO-DIESEL": 26.878777604940034,
                     "MDO": 600.0
                 },
                 "penalties": {
-                    "EU TS": 125034.0,
+                    "EU TS": 241477.34,
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 1280359.667
+                    "total": 1088886.261
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 291746.0,
+                    "EU TS": 290776.74,
                     "FuelEU": 24484.57
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -762,7 +752,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -812,16 +801,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 916930.541
+                    "total": 771671.351
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 250068.0,
+                    "EU TS": 164773.49,
                     "FuelEU": 13874.59
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -835,7 +824,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -885,16 +873,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 508926.211
+                    "total": 446409.211
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 145873.0,
+                    "EU TS": 67847.91,
                     "FuelEU": 5713.07
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -908,7 +896,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -958,16 +945,16 @@
                     "FuelEU": 98115.02
                 },
                 "costs": {
-                    "total": 4119518.918
+                    "total": 3249207.21
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 480900.0,
+                    "EU TS": 782860.47,
                     "FuelEU": 57130.67
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -981,7 +968,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -1025,30 +1011,30 @@
                     "MDO"
                 ],
                 "percentages": {
-                    "VLSFO": 0.0,
-                    "BIO-DIESEL": 48.4,
-                    "MDO": 51.6
+                    "VLSFO": 45.81963642015812,
+                    "BIO-DIESEL": 2.5803635798418734,
+                    "MDO": 51.600000000000016
                 },
                 "amounts": {
-                    "VLSFO": 0.0,
-                    "BIO-DIESEL": 504.1666666666667,
+                    "VLSFO": 558.7760539043672,
+                    "BIO-DIESEL": 26.878787290019513,
                     "MDO": 600.0
                 },
                 "penalties": {
-                    "EU TS": 144270.0,
+                    "EU TS": 278627.7,
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 1318831.667
+                    "total": 1126036.623
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 336630.0,
+                    "EU TS": 335511.63,
                     "FuelEU": 24484.57
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -1062,7 +1048,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -1112,16 +1097,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 961625.676
+                    "total": 794018.919
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 288540.0,
+                    "EU TS": 190123.26,
                     "FuelEU": 13874.59
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -1135,7 +1120,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -1185,16 +1169,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 528162.211
+                    "total": 456027.211
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 168315.0,
+                    "EU TS": 78286.05,
                     "FuelEU": 5713.07
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -1208,7 +1192,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -1258,16 +1241,16 @@
                     "FuelEU": 98115.02
                 },
                 "costs": {
-                    "total": 4351602.04
+                    "total": 3365248.771
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 545020.0,
+                    "EU TS": 887241.86,
                     "FuelEU": 57130.67
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -1281,7 +1264,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -1325,30 +1307,30 @@
                     "MDO"
                 ],
                 "percentages": {
-                    "VLSFO": 0.0,
-                    "BIO-DIESEL": 48.4,
+                    "VLSFO": 45.81963724233238,
+                    "BIO-DIESEL": 2.580362757667627,
                     "MDO": 51.6
                 },
                 "amounts": {
-                    "VLSFO": 0.0,
-                    "BIO-DIESEL": 504.1666666666667,
+                    "VLSFO": 558.7760639308826,
+                    "BIO-DIESEL": 26.878778725704446,
                     "MDO": 600.0
                 },
                 "penalties": {
-                    "EU TS": 163506.0,
+                    "EU TS": 315778.07,
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 1357303.667
+                    "total": 1163186.983
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 381514.0,
+                    "EU TS": 380246.51,
                     "FuelEU": 24484.57
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -1362,7 +1344,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -1412,16 +1393,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 1006320.811
+                    "total": 816366.486
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 327012.0,
+                    "EU TS": 215473.02,
                     "FuelEU": 13874.59
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -1435,7 +1416,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -1485,16 +1465,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 547398.211
+                    "total": 465645.211
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 190757.0,
+                    "EU TS": 88724.19,
                     "FuelEU": 5713.07
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -1508,7 +1488,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -1558,16 +1537,16 @@
                     "FuelEU": 98115.02
                 },
                 "costs": {
-                    "total": 4583685.162
+                    "total": 3481290.332
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 609140.0,
+                    "EU TS": 991623.26,
                     "FuelEU": 57130.67
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -1581,7 +1560,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -1625,30 +1603,30 @@
                     "MDO"
                 ],
                 "percentages": {
-                    "VLSFO": 0.0,
-                    "BIO-DIESEL": 48.4,
+                    "VLSFO": 45.81963623608735,
+                    "BIO-DIESEL": 2.58036376391265,
                     "MDO": 51.6
                 },
                 "amounts": {
-                    "VLSFO": 0.0,
-                    "BIO-DIESEL": 504.1666666666667,
+                    "VLSFO": 558.7760516596018,
+                    "BIO-DIESEL": 26.87878920742344,
                     "MDO": 600.0
                 },
                 "penalties": {
-                    "EU TS": 182742.0,
+                    "EU TS": 352928.42,
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 1395775.667
+                    "total": 1200337.343
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 426398.0,
+                    "EU TS": 424981.4,
                     "FuelEU": 24484.57
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -1662,7 +1640,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -1712,16 +1689,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 1051015.946
+                    "total": 838714.054
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 365484.0,
+                    "EU TS": 240822.79,
                     "FuelEU": 13874.59
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -1735,7 +1712,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -1785,16 +1761,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 566634.211
+                    "total": 475263.211
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 213199.0,
+                    "EU TS": 99162.33,
                     "FuelEU": 5713.07
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -1808,7 +1784,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -1858,16 +1833,16 @@
                     "FuelEU": 273303.95
                 },
                 "costs": {
-                    "total": 3392634.096
+                    "total": 2870447.071
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 288540.0,
+                    "EU TS": 469716.28,
                     "FuelEU": 222046.2
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -1881,7 +1856,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -1925,13 +1899,13 @@
                     "MDO"
                 ],
                 "percentages": {
-                    "VLSFO": 40.53373297234369,
-                    "BIO-DIESEL": 7.86626702765631,
+                    "VLSFO": 40.53373299564383,
+                    "BIO-DIESEL": 7.866267004356171,
                     "MDO": 51.6
                 },
                 "amounts": {
-                    "VLSFO": 494.3138167358987,
-                    "BIO-DIESEL": 81.94028153808655,
+                    "VLSFO": 494.3138170200467,
+                    "BIO-DIESEL": 81.94028129537678,
                     "MDO": 600.0
                 },
                 "penalties": {
@@ -1939,16 +1913,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 1167103.479
+                    "total": 1009226.825
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 201978.0,
+                    "EU TS": 201306.98,
                     "FuelEU": 95162.66
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -1962,7 +1936,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -2012,16 +1985,16 @@
                     "FuelEU": 4222.21
                 },
                 "costs": {
-                    "total": 831762.482
+                    "total": 731198.428
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 173124.0,
+                    "EU TS": 114073.95,
                     "FuelEU": 53925.5
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -2035,7 +2008,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -2085,16 +2057,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 470454.211
+                    "total": 427173.211
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 100989.0,
+                    "EU TS": 46971.63,
                     "FuelEU": 22204.62
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -2108,7 +2080,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -2158,16 +2129,16 @@
                     "FuelEU": 273303.95
                 },
                 "costs": {
-                    "total": 3624717.218
+                    "total": 2986488.632
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 352660.0,
+                    "EU TS": 574097.67,
                     "FuelEU": 222046.2
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -2181,7 +2152,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -2225,13 +2195,13 @@
                     "MDO"
                 ],
                 "percentages": {
-                    "VLSFO": 40.53373295546611,
-                    "BIO-DIESEL": 7.866267044533891,
+                    "VLSFO": 40.53373295682374,
+                    "BIO-DIESEL": 7.866267043176263,
                     "MDO": 51.6
                 },
                 "amounts": {
-                    "VLSFO": 494.31381653007446,
-                    "BIO-DIESEL": 81.94028171389469,
+                    "VLSFO": 494.313816546631,
+                    "BIO-DIESEL": 81.94028169975273,
                     "MDO": 600.0
                 },
                 "penalties": {
@@ -2239,16 +2209,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 1237270.881
+                    "total": 1044310.526
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 246862.0,
+                    "EU TS": 246041.86,
                     "FuelEU": 95162.66
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -2262,7 +2232,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -2312,16 +2281,16 @@
                     "FuelEU": 4222.21
                 },
                 "costs": {
-                    "total": 876457.617
+                    "total": 753545.996
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 211596.0,
+                    "EU TS": 139423.72,
                     "FuelEU": 53925.5
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -2335,7 +2304,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -2385,16 +2353,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 489690.211
+                    "total": 436791.211
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 123431.0,
+                    "EU TS": 57409.77,
                     "FuelEU": 22204.62
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -2408,7 +2376,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -2458,16 +2425,16 @@
                     "FuelEU": 273303.95
                 },
                 "costs": {
-                    "total": 3856800.34
+                    "total": 3102530.193
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 416780.0,
+                    "EU TS": 678479.07,
                     "FuelEU": 222046.2
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -2481,7 +2448,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -2525,13 +2491,13 @@
                     "MDO"
                 ],
                 "percentages": {
-                    "VLSFO": 40.53373271343765,
-                    "BIO-DIESEL": 7.8662672865623575,
+                    "VLSFO": 40.53373294969083,
+                    "BIO-DIESEL": 7.866267050309178,
                     "MDO": 51.6
                 },
                 "amounts": {
-                    "VLSFO": 494.3138135785079,
-                    "BIO-DIESEL": 81.94028423502456,
+                    "VLSFO": 494.3138164596442,
+                    "BIO-DIESEL": 81.94028177405393,
                     "MDO": 600.0
                 },
                 "penalties": {
@@ -2539,16 +2505,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 1307438.283
+                    "total": 1079394.227
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 291746.0,
+                    "EU TS": 290776.74,
                     "FuelEU": 95162.66
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -2562,7 +2528,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -2612,16 +2577,16 @@
                     "FuelEU": 4222.21
                 },
                 "costs": {
-                    "total": 921152.753
+                    "total": 775893.563
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 250068.0,
+                    "EU TS": 164773.49,
                     "FuelEU": 53925.5
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -2635,7 +2600,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -2685,16 +2649,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 508926.211
+                    "total": 446409.211
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 145873.0,
+                    "EU TS": 67847.91,
                     "FuelEU": 22204.62
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -2708,7 +2672,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -2758,16 +2721,16 @@
                     "FuelEU": 273303.95
                 },
                 "costs": {
-                    "total": 4088883.462
+                    "total": 3218571.754
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 480900.0,
+                    "EU TS": 782860.47,
                     "FuelEU": 222046.2
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -2781,7 +2744,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -2825,13 +2787,13 @@
                     "MDO"
                 ],
                 "percentages": {
-                    "VLSFO": 40.533732554323244,
-                    "BIO-DIESEL": 7.8662674456767485,
+                    "VLSFO": 40.53373302786406,
+                    "BIO-DIESEL": 7.866266972135942,
                     "MDO": 51.6
                 },
                 "amounts": {
-                    "VLSFO": 494.3138116380883,
-                    "BIO-DIESEL": 81.94028589246614,
+                    "VLSFO": 494.31381741297633,
+                    "BIO-DIESEL": 81.94028095974939,
                     "MDO": 600.0
                 },
                 "penalties": {
@@ -2839,16 +2801,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 1377605.685
+                    "total": 1114477.928
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 336630.0,
+                    "EU TS": 335511.63,
                     "FuelEU": 95162.66
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -2862,7 +2824,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -2912,16 +2873,16 @@
                     "FuelEU": 4222.21
                 },
                 "costs": {
-                    "total": 965847.888
+                    "total": 798241.131
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 288540.0,
+                    "EU TS": 190123.26,
                     "FuelEU": 53925.5
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -2935,7 +2896,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -2985,16 +2945,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 528162.211
+                    "total": 456027.211
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 168315.0,
+                    "EU TS": 78286.05,
                     "FuelEU": 22204.62
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -3008,7 +2968,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -3058,16 +3017,16 @@
                     "FuelEU": 273303.95
                 },
                 "costs": {
-                    "total": 4320966.584
+                    "total": 3334613.315
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 545020.0,
+                    "EU TS": 887241.86,
                     "FuelEU": 222046.2
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -3081,7 +3040,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -3125,30 +3083,30 @@
                     "MDO"
                 ],
                 "percentages": {
-                    "VLSFO": 40.53372959498813,
-                    "BIO-DIESEL": 7.8662704050118615,
+                    "VLSFO": 40.53373297469632,
+                    "BIO-DIESEL": 7.8662670253036735,
                     "MDO": 51.6
                 },
                 "amounts": {
-                    "VLSFO": 494.31377554863576,
-                    "BIO-DIESEL": 81.94031671887356,
+                    "VLSFO": 494.3138167645893,
+                    "BIO-DIESEL": 81.94028151357993,
                     "MDO": 600.0
                 },
                 "penalties": {
-                    "EU TS": 298211.45,
+                    "EU TS": 298211.46,
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 1447773.089
+                    "total": 1149561.628
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 381514.0,
+                    "EU TS": 380246.51,
                     "FuelEU": 95162.66
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -3162,7 +3120,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -3212,16 +3169,16 @@
                     "FuelEU": 4222.21
                 },
                 "costs": {
-                    "total": 1010543.023
+                    "total": 820588.698
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 327012.0,
+                    "EU TS": 215473.02,
                     "FuelEU": 53925.5
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -3235,7 +3192,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -3285,16 +3241,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 547398.211
+                    "total": 465645.211
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 190757.0,
+                    "EU TS": 88724.19,
                     "FuelEU": 22204.62
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -3308,7 +3264,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -3358,16 +3313,16 @@
                     "FuelEU": 273303.95
                 },
                 "costs": {
-                    "total": 4553049.705
+                    "total": 3450654.876
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 609140.0,
+                    "EU TS": 991623.26,
                     "FuelEU": 222046.2
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -3381,7 +3336,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -3425,30 +3379,30 @@
                     "MDO"
                 ],
                 "percentages": {
-                    "VLSFO": 1.7084741443795791e-10,
-                    "BIO-DIESEL": 48.399999999829156,
+                    "VLSFO": 40.53373285819121,
+                    "BIO-DIESEL": 7.866267141808791,
                     "MDO": 51.6
                 },
                 "amounts": {
-                    "VLSFO": 2.083505054121438e-09,
-                    "BIO-DIESEL": 504.1666666648871,
+                    "VLSFO": 494.3138153437952,
+                    "BIO-DIESEL": 81.9402827271749,
                     "MDO": 600.0
                 },
                 "penalties": {
-                    "EU TS": 182742.0,
+                    "EU TS": 333295.16,
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 1512238.167
+                    "total": 1184645.33
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 426398.0,
+                    "EU TS": 424981.4,
                     "FuelEU": 95162.66
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -3462,7 +3416,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -3512,16 +3465,16 @@
                     "FuelEU": 4222.21
                 },
                 "costs": {
-                    "total": 1055238.158
+                    "total": 842936.266
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 365484.0,
+                    "EU TS": 240822.79,
                     "FuelEU": 53925.5
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -3535,7 +3488,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -3585,16 +3537,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 566634.211
+                    "total": 475263.211
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 213199.0,
+                    "EU TS": 99162.33,
                     "FuelEU": 22204.62
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -3608,7 +3560,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -3658,16 +3609,16 @@
                     "FuelEU": 645580.43
                 },
                 "costs": {
-                    "total": 3764910.581
+                    "total": 3242723.556
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 288540.0,
+                    "EU TS": 469716.28,
                     "FuelEU": 572491.68
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -3681,7 +3632,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -3725,13 +3675,13 @@
                     "MDO"
                 ],
                 "percentages": {
-                    "VLSFO": 29.574886925347766,
-                    "BIO-DIESEL": 18.825113074652236,
+                    "VLSFO": 29.57488681582749,
+                    "BIO-DIESEL": 18.825113184172512,
                     "MDO": 51.6
                 },
                 "amounts": {
-                    "VLSFO": 360.6693527481435,
-                    "BIO-DIESEL": 196.09492786096078,
+                    "VLSFO": 360.6693514125304,
+                    "BIO-DIESEL": 196.094929001797,
                     "MDO": 600.0
                 },
                 "penalties": {
@@ -3739,16 +3689,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 1254098.313
+                    "total": 1115502.545
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 201978.0,
+                    "EU TS": 201306.98,
                     "FuelEU": 245353.58
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -3762,7 +3712,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -3812,16 +3761,16 @@
                     "FuelEU": 83238.44
                 },
                 "costs": {
-                    "total": 910778.715
+                    "total": 810214.66
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 173124.0,
+                    "EU TS": 114073.95,
                     "FuelEU": 139033.69
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -3835,7 +3784,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -3885,16 +3833,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 470454.211
+                    "total": 427173.211
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 100989.0,
+                    "EU TS": 46971.63,
                     "FuelEU": 57249.17
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -3908,7 +3856,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -3958,16 +3905,16 @@
                     "FuelEU": 645580.43
                 },
                 "costs": {
-                    "total": 3996993.703
+                    "total": 3358765.117
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 352660.0,
+                    "EU TS": 574097.67,
                     "FuelEU": 572491.68
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -3981,7 +3928,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -4025,13 +3971,13 @@
                     "MDO"
                 ],
                 "percentages": {
-                    "VLSFO": 29.574886877048367,
-                    "BIO-DIESEL": 18.825113122951635,
+                    "VLSFO": 29.57488677911299,
+                    "BIO-DIESEL": 18.825113220887015,
                     "MDO": 51.6
                 },
                 "amounts": {
-                    "VLSFO": 360.6693521591264,
-                    "BIO-DIESEL": 196.09492836407952,
+                    "VLSFO": 360.66935096479256,
+                    "BIO-DIESEL": 196.09492938423975,
                     "MDO": 600.0
                 },
                 "penalties": {
@@ -4039,16 +3985,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 1315696.431
+                    "total": 1146301.605
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 246862.0,
+                    "EU TS": 246041.86,
                     "FuelEU": 245353.58
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -4062,7 +4008,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -4112,16 +4057,16 @@
                     "FuelEU": 83238.44
                 },
                 "costs": {
-                    "total": 955473.85
+                    "total": 832562.228
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 211596.0,
+                    "EU TS": 139423.72,
                     "FuelEU": 139033.69
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -4135,7 +4080,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -4185,16 +4129,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 489690.211
+                    "total": 436791.211
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 123431.0,
+                    "EU TS": 57409.77,
                     "FuelEU": 57249.17
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -4208,7 +4152,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -4258,16 +4201,16 @@
                     "FuelEU": 645580.43
                 },
                 "costs": {
-                    "total": 4229076.825
+                    "total": 3474806.678
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 416780.0,
+                    "EU TS": 678479.07,
                     "FuelEU": 572491.68
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -4281,7 +4224,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -4325,13 +4267,13 @@
                     "MDO"
                 ],
                 "percentages": {
-                    "VLSFO": 29.57488688219077,
-                    "BIO-DIESEL": 18.825113117809227,
+                    "VLSFO": 29.574886881697637,
+                    "BIO-DIESEL": 18.82511311830236,
                     "MDO": 51.6
                 },
                 "amounts": {
-                    "VLSFO": 360.66935222183866,
-                    "BIO-DIESEL": 196.09492831051278,
+                    "VLSFO": 360.66935221582486,
+                    "BIO-DIESEL": 196.09492831564958,
                     "MDO": 600.0
                 },
                 "penalties": {
@@ -4339,16 +4281,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 1377294.55
+                    "total": 1177100.664
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 291746.0,
+                    "EU TS": 290776.74,
                     "FuelEU": 245353.58
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -4362,7 +4304,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -4412,16 +4353,16 @@
                     "FuelEU": 83238.44
                 },
                 "costs": {
-                    "total": 1000168.985
+                    "total": 854909.796
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 250068.0,
+                    "EU TS": 164773.49,
                     "FuelEU": 139033.69
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -4435,7 +4376,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -4485,16 +4425,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 508926.211
+                    "total": 446409.211
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 145873.0,
+                    "EU TS": 67847.91,
                     "FuelEU": 57249.17
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -4508,7 +4448,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -4558,16 +4497,16 @@
                     "FuelEU": 645580.43
                 },
                 "costs": {
-                    "total": 4461159.947
+                    "total": 3590848.239
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 480900.0,
+                    "EU TS": 782860.47,
                     "FuelEU": 572491.68
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -4581,7 +4520,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -4625,13 +4563,13 @@
                     "MDO"
                 ],
                 "percentages": {
-                    "VLSFO": 29.574886873599944,
-                    "BIO-DIESEL": 18.82511312640005,
+                    "VLSFO": 29.574886915867648,
+                    "BIO-DIESEL": 18.825113084132354,
                     "MDO": 51.6
                 },
                 "amounts": {
-                    "VLSFO": 360.6693521170725,
-                    "BIO-DIESEL": 196.09492840000053,
+                    "VLSFO": 360.6693526325323,
+                    "BIO-DIESEL": 196.09492795971204,
                     "MDO": 600.0
                 },
                 "penalties": {
@@ -4639,16 +4577,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 1438892.669
+                    "total": 1207899.723
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 336630.0,
+                    "EU TS": 335511.63,
                     "FuelEU": 245353.58
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -4662,7 +4600,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -4712,16 +4649,16 @@
                     "FuelEU": 83238.44
                 },
                 "costs": {
-                    "total": 1044864.12
+                    "total": 877257.363
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 288540.0,
+                    "EU TS": 190123.26,
                     "FuelEU": 139033.69
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -4735,7 +4672,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -4785,16 +4721,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 528162.211
+                    "total": 456027.211
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 168315.0,
+                    "EU TS": 78286.05,
                     "FuelEU": 57249.17
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -4808,7 +4744,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -4858,16 +4793,16 @@
                     "FuelEU": 645580.43
                 },
                 "costs": {
-                    "total": 4693243.069
+                    "total": 3706889.8
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 545020.0,
+                    "EU TS": 887241.86,
                     "FuelEU": 572491.68
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -4881,7 +4816,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -4925,13 +4859,13 @@
                     "MDO"
                 ],
                 "percentages": {
-                    "VLSFO": 29.574886840625897,
-                    "BIO-DIESEL": 18.825113159374098,
+                    "VLSFO": 29.574886876941058,
+                    "BIO-DIESEL": 18.825113123058937,
                     "MDO": 51.6
                 },
                 "amounts": {
-                    "VLSFO": 360.66935171495,
-                    "BIO-DIESEL": 196.0949287434802,
+                    "VLSFO": 360.6693521578178,
+                    "BIO-DIESEL": 196.09492836519726,
                     "MDO": 600.0
                 },
                 "penalties": {
@@ -4939,16 +4873,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 1500490.788
+                    "total": 1238698.782
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 381514.0,
+                    "EU TS": 380246.51,
                     "FuelEU": 245353.58
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -4962,7 +4896,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -5012,16 +4945,16 @@
                     "FuelEU": 83238.44
                 },
                 "costs": {
-                    "total": 1089559.255
+                    "total": 899604.931
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 327012.0,
+                    "EU TS": 215473.02,
                     "FuelEU": 139033.69
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -5035,7 +4968,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -5085,16 +5017,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 547398.211
+                    "total": 465645.211
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 190757.0,
+                    "EU TS": 88724.19,
                     "FuelEU": 57249.17
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -5108,7 +5040,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -5158,16 +5089,16 @@
                     "FuelEU": 645580.43
                 },
                 "costs": {
-                    "total": 4925326.191
+                    "total": 3822931.361
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 609140.0,
+                    "EU TS": 991623.26,
                     "FuelEU": 572491.68
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -5181,7 +5112,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -5225,13 +5155,13 @@
                     "MDO"
                 ],
                 "percentages": {
-                    "VLSFO": 29.574886613182738,
-                    "BIO-DIESEL": 18.82511338681726,
+                    "VLSFO": 29.574886877523454,
+                    "BIO-DIESEL": 18.825113122476544,
                     "MDO": 51.6
                 },
                 "amounts": {
-                    "VLSFO": 360.6693489412529,
-                    "BIO-DIESEL": 196.0949311126798,
+                    "VLSFO": 360.6693521649202,
+                    "BIO-DIESEL": 196.09492835913068,
                     "MDO": 600.0
                 },
                 "penalties": {
@@ -5239,16 +5169,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 1562088.907
+                    "total": 1269497.842
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 426398.0,
+                    "EU TS": 424981.4,
                     "FuelEU": 245353.58
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -5262,7 +5192,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -5312,16 +5241,16 @@
                     "FuelEU": 83238.44
                 },
                 "costs": {
-                    "total": 1134254.39
+                    "total": 921952.498
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 365484.0,
+                    "EU TS": 240822.79,
                     "FuelEU": 139033.69
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -5335,7 +5264,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -5385,16 +5313,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 566634.211
+                    "total": 475263.211
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 213199.0,
+                    "EU TS": 99162.33,
                     "FuelEU": 57249.17
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -5408,7 +5336,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -5458,16 +5385,16 @@
                     "FuelEU": 1368234.79
                 },
                 "costs": {
-                    "total": 4487564.934
+                    "total": 3965377.91
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 288540.0,
+                    "EU TS": 469716.28,
                     "FuelEU": 1252768.21
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -5481,7 +5408,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -5525,13 +5451,13 @@
                     "MDO"
                 ],
                 "percentages": {
-                    "VLSFO": 9.306237524045265,
-                    "BIO-DIESEL": 39.09376247595473,
+                    "VLSFO": 9.306237528253316,
+                    "BIO-DIESEL": 39.093762471746686,
                     "MDO": 51.6
                 },
                 "amounts": {
-                    "VLSFO": 113.49070151274715,
-                    "BIO-DIESEL": 407.2266924578618,
+                    "VLSFO": 113.49070156406482,
+                    "BIO-DIESEL": 407.2266924140279,
                     "MDO": 600.0
                 },
                 "penalties": {
@@ -5539,16 +5465,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 1474162.67
+                    "total": 1371227.366
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 201978.0,
+                    "EU TS": 201306.98,
                     "FuelEU": 536900.66
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -5562,7 +5488,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -5612,16 +5537,16 @@
                     "FuelEU": 236622.9
                 },
                 "costs": {
-                    "total": 1064163.165
+                    "total": 963599.111
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 173124.0,
+                    "EU TS": 114073.95,
                     "FuelEU": 304243.71
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -5635,7 +5560,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -5685,16 +5609,16 @@
                     "FuelEU": 34037.89
                 },
                 "costs": {
-                    "total": 504492.104
+                    "total": 461211.104
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 100989.0,
+                    "EU TS": 46971.63,
                     "FuelEU": 125276.82
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -5708,7 +5632,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -5758,16 +5681,16 @@
                     "FuelEU": 1368234.79
                 },
                 "costs": {
-                    "total": 4719648.056
+                    "total": 4081419.471
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 352660.0,
+                    "EU TS": 574097.67,
                     "FuelEU": 1252768.21
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -5781,7 +5704,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -5825,13 +5747,13 @@
                     "MDO"
                 ],
                 "percentages": {
-                    "VLSFO": 9.306237515573738,
-                    "BIO-DIESEL": 39.09376248442626,
+                    "VLSFO": 9.306237497411995,
+                    "BIO-DIESEL": 39.09376250258801,
                     "MDO": 51.6
                 },
                 "amounts": {
-                    "VLSFO": 113.49070140943583,
-                    "BIO-DIESEL": 407.22669254610685,
+                    "VLSFO": 113.49070118795117,
+                    "BIO-DIESEL": 407.2266927352918,
                     "MDO": 600.0
                 },
                 "penalties": {
@@ -5839,16 +5761,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 1519911.693
+                    "total": 1394101.878
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 246862.0,
+                    "EU TS": 246041.86,
                     "FuelEU": 536900.66
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -5862,7 +5784,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -5912,16 +5833,16 @@
                     "FuelEU": 236622.9
                 },
                 "costs": {
-                    "total": 1108858.301
+                    "total": 985946.679
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 211596.0,
+                    "EU TS": 139423.72,
                     "FuelEU": 304243.71
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -5935,7 +5856,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -5985,16 +5905,16 @@
                     "FuelEU": 34037.89
                 },
                 "costs": {
-                    "total": 523728.104
+                    "total": 470829.104
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 123431.0,
+                    "EU TS": 57409.77,
                     "FuelEU": 125276.82
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -6008,7 +5928,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -6058,16 +5977,16 @@
                     "FuelEU": 1368234.79
                 },
                 "costs": {
-                    "total": 4951731.178
+                    "total": 4197461.032
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 416780.0,
+                    "EU TS": 678479.07,
                     "FuelEU": 1252768.21
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -6081,7 +6000,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -6125,13 +6043,13 @@
                     "MDO"
                 ],
                 "percentages": {
-                    "VLSFO": 9.306237523045777,
-                    "BIO-DIESEL": 39.09376247695423,
+                    "VLSFO": 9.30623754826769,
+                    "BIO-DIESEL": 39.0937624517323,
                     "MDO": 51.6
                 },
                 "amounts": {
-                    "VLSFO": 113.49070150055825,
-                    "BIO-DIESEL": 407.2266924682732,
+                    "VLSFO": 113.49070180814256,
+                    "BIO-DIESEL": 407.22669220554485,
                     "MDO": 600.0
                 },
                 "penalties": {
@@ -6139,16 +6057,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 1565660.717
+                    "total": 1416976.39
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 291746.0,
+                    "EU TS": 290776.74,
                     "FuelEU": 536900.66
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -6162,7 +6080,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -6212,16 +6129,16 @@
                     "FuelEU": 236622.9
                 },
                 "costs": {
-                    "total": 1153553.436
+                    "total": 1008294.246
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 250068.0,
+                    "EU TS": 164773.49,
                     "FuelEU": 304243.71
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -6235,7 +6152,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -6285,16 +6201,16 @@
                     "FuelEU": 34037.89
                 },
                 "costs": {
-                    "total": 542964.104
+                    "total": 480447.104
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 145873.0,
+                    "EU TS": 67847.91,
                     "FuelEU": 125276.82
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -6308,7 +6224,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -6358,16 +6273,16 @@
                     "FuelEU": 1368234.79
                 },
                 "costs": {
-                    "total": 5183814.3
+                    "total": 4313502.593
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 480900.0,
+                    "EU TS": 782860.47,
                     "FuelEU": 1252768.21
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -6381,7 +6296,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -6425,13 +6339,13 @@
                     "MDO"
                 ],
                 "percentages": {
-                    "VLSFO": 9.306237533163971,
-                    "BIO-DIESEL": 39.09376246683603,
+                    "VLSFO": 9.306237487588266,
+                    "BIO-DIESEL": 39.093762512411736,
                     "MDO": 51.6
                 },
                 "amounts": {
-                    "VLSFO": 113.49070162395088,
-                    "BIO-DIESEL": 407.22669236287527,
+                    "VLSFO": 113.49070106814959,
+                    "BIO-DIESEL": 407.22669283762224,
                     "MDO": 600.0
                 },
                 "penalties": {
@@ -6439,16 +6353,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 1611409.741
+                    "total": 1439850.902
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 336630.0,
+                    "EU TS": 335511.63,
                     "FuelEU": 536900.66
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -6462,7 +6376,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -6512,16 +6425,16 @@
                     "FuelEU": 236622.9
                 },
                 "costs": {
-                    "total": 1198248.571
+                    "total": 1030641.814
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 288540.0,
+                    "EU TS": 190123.26,
                     "FuelEU": 304243.71
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -6535,7 +6448,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -6585,16 +6497,16 @@
                     "FuelEU": 34037.89
                 },
                 "costs": {
-                    "total": 562200.104
+                    "total": 490065.104
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 168315.0,
+                    "EU TS": 78286.05,
                     "FuelEU": 125276.82
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -6608,7 +6520,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -6658,16 +6569,16 @@
                     "FuelEU": 1368234.79
                 },
                 "costs": {
-                    "total": 5415897.422
+                    "total": 4429544.154
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 545020.0,
+                    "EU TS": 887241.86,
                     "FuelEU": 1252768.21
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -6681,7 +6592,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -6725,13 +6635,13 @@
                     "MDO"
                 ],
                 "percentages": {
-                    "VLSFO": 9.3062373955223,
-                    "BIO-DIESEL": 39.0937626044777,
+                    "VLSFO": 9.306237535540744,
+                    "BIO-DIESEL": 39.09376246445925,
                     "MDO": 51.6
                 },
                 "amounts": {
-                    "VLSFO": 113.4906999453939,
-                    "BIO-DIESEL": 407.22669379664273,
+                    "VLSFO": 113.49070165293588,
+                    "BIO-DIESEL": 407.22669233811723,
                     "MDO": 600.0
                 },
                 "penalties": {
@@ -6739,16 +6649,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 1657158.765
+                    "total": 1462725.414
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 381514.0,
+                    "EU TS": 380246.51,
                     "FuelEU": 536900.66
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -6762,7 +6672,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -6812,16 +6721,16 @@
                     "FuelEU": 236622.9
                 },
                 "costs": {
-                    "total": 1242943.706
+                    "total": 1052989.382
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 327012.0,
+                    "EU TS": 215473.02,
                     "FuelEU": 304243.71
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -6835,7 +6744,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -6885,16 +6793,16 @@
                     "FuelEU": 34037.89
                 },
                 "costs": {
-                    "total": 581436.104
+                    "total": 499683.104
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 190757.0,
+                    "EU TS": 88724.19,
                     "FuelEU": 125276.82
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -6908,7 +6816,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -6958,16 +6865,16 @@
                     "FuelEU": 1368234.79
                 },
                 "costs": {
-                    "total": 5647980.544
+                    "total": 4545585.715
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 609140.0,
+                    "EU TS": 991623.26,
                     "FuelEU": 1252768.21
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -6981,7 +6888,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -7025,13 +6931,13 @@
                     "MDO"
                 ],
                 "percentages": {
-                    "VLSFO": 9.306237524627923,
-                    "BIO-DIESEL": 39.09376247537207,
+                    "VLSFO": 9.306237523813838,
+                    "BIO-DIESEL": 39.09376247618616,
                     "MDO": 51.6
                 },
                 "amounts": {
-                    "VLSFO": 113.49070151985273,
-                    "BIO-DIESEL": 407.22669245179236,
+                    "VLSFO": 113.49070150992486,
+                    "BIO-DIESEL": 407.2266924602725,
                     "MDO": 600.0
                 },
                 "penalties": {
@@ -7039,16 +6945,16 @@
                     "FuelEU": 0.0
                 },
                 "costs": {
-                    "total": 1702907.788
+                    "total": 1485599.926
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 426398.0,
+                    "EU TS": 424981.4,
                     "FuelEU": 536900.66
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -7062,7 +6968,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -7112,16 +7017,16 @@
                     "FuelEU": 236622.9
                 },
                 "costs": {
-                    "total": 1287638.841
+                    "total": 1075336.949
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 365484.0,
+                    "EU TS": 240822.79,
                     "FuelEU": 304243.71
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -7135,7 +7040,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -7185,16 +7089,16 @@
                     "FuelEU": 34037.89
                 },
                 "costs": {
-                    "total": 600672.104
+                    "total": 509301.104
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 213199.0,
+                    "EU TS": 99162.33,
                     "FuelEU": 125276.82
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -7208,7 +7112,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -7258,16 +7161,16 @@
                     "FuelEU": 2725949.03
                 },
                 "costs": {
-                    "total": 5845279.174
+                    "total": 5323092.15
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 288540.0,
+                    "EU TS": 469716.28,
                     "FuelEU": 2530863.51
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -7281,7 +7184,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -7339,16 +7241,16 @@
                     "FuelEU": 906925.78
                 },
                 "costs": {
-                    "total": 2044380.71
+                    "total": 1872664.222
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 201978.0,
+                    "EU TS": 201306.98,
                     "FuelEU": 1084655.79
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -7362,7 +7264,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -7412,16 +7313,16 @@
                     "FuelEU": 524799.74
                 },
                 "costs": {
-                    "total": 1352340.012
+                    "total": 1251775.958
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 173124.0,
+                    "EU TS": 114073.95,
                     "FuelEU": 614638.28
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -7435,7 +7336,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -7485,16 +7385,16 @@
                     "FuelEU": 215988.35
                 },
                 "costs": {
-                    "total": 686442.559
+                    "total": 643161.559
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 100989.0,
+                    "EU TS": 46971.63,
                     "FuelEU": 253086.35
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -7508,7 +7408,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -7558,16 +7457,16 @@
                     "FuelEU": 2725949.03
                 },
                 "costs": {
-                    "total": 6077362.296
+                    "total": 5439133.711
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 352660.0,
+                    "EU TS": 574097.67,
                     "FuelEU": 2530863.51
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -7581,7 +7480,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -7639,16 +7537,16 @@
                     "FuelEU": 906925.78
                 },
                 "costs": {
-                    "total": 2120699.149
+                    "total": 1910823.441
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 246862.0,
+                    "EU TS": 246041.86,
                     "FuelEU": 1084655.79
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -7662,7 +7560,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -7712,16 +7609,16 @@
                     "FuelEU": 524799.74
                 },
                 "costs": {
-                    "total": 1397035.148
+                    "total": 1274123.526
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 211596.0,
+                    "EU TS": 139423.72,
                     "FuelEU": 614638.28
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -7735,7 +7632,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -7785,16 +7681,16 @@
                     "FuelEU": 215988.35
                 },
                 "costs": {
-                    "total": 705678.559
+                    "total": 652779.559
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 123431.0,
+                    "EU TS": 57409.77,
                     "FuelEU": 253086.35
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -7808,7 +7704,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -7858,16 +7753,16 @@
                     "FuelEU": 2725949.03
                 },
                 "costs": {
-                    "total": 6309445.418
+                    "total": 5555175.272
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 416780.0,
+                    "EU TS": 678479.07,
                     "FuelEU": 2530863.51
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -7881,7 +7776,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -7939,16 +7833,16 @@
                     "FuelEU": 906925.78
                 },
                 "costs": {
-                    "total": 2197017.588
+                    "total": 1948982.661
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 291746.0,
+                    "EU TS": 290776.74,
                     "FuelEU": 1084655.79
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -7962,7 +7856,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -8012,16 +7905,16 @@
                     "FuelEU": 524799.74
                 },
                 "costs": {
-                    "total": 1441730.283
+                    "total": 1296471.094
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 250068.0,
+                    "EU TS": 164773.49,
                     "FuelEU": 614638.28
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -8035,7 +7928,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -8085,16 +7977,16 @@
                     "FuelEU": 215988.35
                 },
                 "costs": {
-                    "total": 724914.559
+                    "total": 662397.559
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 145873.0,
+                    "EU TS": 67847.91,
                     "FuelEU": 253086.35
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -8108,7 +8000,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -8158,16 +8049,16 @@
                     "FuelEU": 2725949.03
                 },
                 "costs": {
-                    "total": 6541528.54
+                    "total": 5671216.833
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 480900.0,
+                    "EU TS": 782860.47,
                     "FuelEU": 2530863.51
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -8181,7 +8072,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -8239,16 +8129,16 @@
                     "FuelEU": 906925.78
                 },
                 "costs": {
-                    "total": 2273336.027
+                    "total": 1987141.88
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 336630.0,
+                    "EU TS": 335511.63,
                     "FuelEU": 1084655.79
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -8262,7 +8152,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -8312,16 +8201,16 @@
                     "FuelEU": 524799.74
                 },
                 "costs": {
-                    "total": 1486425.418
+                    "total": 1318818.661
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 288540.0,
+                    "EU TS": 190123.26,
                     "FuelEU": 614638.28
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -8335,7 +8224,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -8385,16 +8273,16 @@
                     "FuelEU": 215988.35
                 },
                 "costs": {
-                    "total": 744150.559
+                    "total": 672015.559
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 168315.0,
+                    "EU TS": 78286.05,
                     "FuelEU": 253086.35
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -8408,7 +8296,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -8458,16 +8345,16 @@
                     "FuelEU": 2725949.03
                 },
                 "costs": {
-                    "total": 6773611.662
+                    "total": 5787258.394
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 545020.0,
+                    "EU TS": 887241.86,
                     "FuelEU": 2530863.51
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -8481,7 +8368,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -8525,13 +8411,13 @@
                     "MDO"
                 ],
                 "percentages": {
-                    "VLSFO": 48.4,
-                    "BIO-DIESEL": 0.0,
+                    "VLSFO": 48.39999990077553,
+                    "BIO-DIESEL": 9.922445315169171e-08,
                     "MDO": 51.6
                 },
                 "amounts": {
-                    "VLSFO": 590.2439024390244,
-                    "BIO-DIESEL": 0.0,
+                    "VLSFO": 590.24390122897,
+                    "BIO-DIESEL": 1.0335880536634552e-06,
                     "MDO": 600.0
                 },
                 "penalties": {
@@ -8539,16 +8425,16 @@
                     "FuelEU": 906925.78
                 },
                 "costs": {
-                    "total": 2349654.466
+                    "total": 2025301.101
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 381514.0,
+                    "EU TS": 380246.51,
                     "FuelEU": 1084655.79
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -8562,7 +8448,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -8612,16 +8497,16 @@
                     "FuelEU": 524799.74
                 },
                 "costs": {
-                    "total": 1531120.553
+                    "total": 1341166.229
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 327012.0,
+                    "EU TS": 215473.02,
                     "FuelEU": 614638.28
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -8635,7 +8520,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -8685,16 +8569,16 @@
                     "FuelEU": 215988.35
                 },
                 "costs": {
-                    "total": 763386.559
+                    "total": 681633.559
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 190757.0,
+                    "EU TS": 88724.19,
                     "FuelEU": 253086.35
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -8708,7 +8592,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -8758,16 +8641,16 @@
                     "FuelEU": 2725949.03
                 },
                 "costs": {
-                    "total": 7005694.784
+                    "total": 5903299.955
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 609140.0,
+                    "EU TS": 991623.26,
                     "FuelEU": 2530863.51
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -8781,7 +8664,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -8825,13 +8707,13 @@
                     "MDO"
                 ],
                 "percentages": {
-                    "VLSFO": 48.39999999998819,
-                    "BIO-DIESEL": 1.1809618172264891e-11,
+                    "VLSFO": 48.4,
+                    "BIO-DIESEL": 0.0,
                     "MDO": 51.6
                 },
                 "amounts": {
-                    "VLSFO": 590.2439024388804,
-                    "BIO-DIESEL": 1.2301685596109263e-10,
+                    "VLSFO": 590.2439024390244,
+                    "BIO-DIESEL": 0.0,
                     "MDO": 600.0
                 },
                 "penalties": {
@@ -8839,16 +8721,16 @@
                     "FuelEU": 906925.78
                 },
                 "costs": {
-                    "total": 2425972.905
+                    "total": 2063460.319
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 426398.0,
+                    "EU TS": 424981.4,
                     "FuelEU": 1084655.79
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -8862,7 +8744,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -8912,16 +8793,16 @@
                     "FuelEU": 524799.74
                 },
                 "costs": {
-                    "total": 1575815.688
+                    "total": 1363513.796
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 365484.0,
+                    "EU TS": 240822.79,
                     "FuelEU": 614638.28
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -8935,7 +8816,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -8985,16 +8865,16 @@
                     "FuelEU": 215988.35
                 },
                 "costs": {
-                    "total": 782622.559
+                    "total": 691251.559
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 213199.0,
+                    "EU TS": 99162.33,
                     "FuelEU": 253086.35
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -9008,7 +8888,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -9058,16 +8937,16 @@
                     "FuelEU": 3514299.23
                 },
                 "costs": {
-                    "total": 6633629.378
+                    "total": 6111442.354
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 288540.0,
+                    "EU TS": 469716.28,
                     "FuelEU": 3272983.36
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -9081,7 +8960,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -9139,16 +9017,16 @@
                     "FuelEU": 1170525.77
                 },
                 "costs": {
-                    "total": 2307980.692
+                    "total": 2136264.204
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 201978.0,
+                    "EU TS": 201306.98,
                     "FuelEU": 1402707.16
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -9162,7 +9040,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -9212,16 +9089,16 @@
                     "FuelEU": 692128.23
                 },
                 "costs": {
-                    "total": 1519668.504
+                    "total": 1419104.45
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 173124.0,
+                    "EU TS": 114073.95,
                     "FuelEU": 794867.39
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -9235,7 +9112,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -9285,16 +9161,16 @@
                     "FuelEU": 321637.0
                 },
                 "costs": {
-                    "total": 792091.211
+                    "total": 748810.211
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 100989.0,
+                    "EU TS": 46971.63,
                     "FuelEU": 327298.34
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -9308,7 +9184,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -9358,16 +9233,16 @@
                     "FuelEU": 3514299.23
                 },
                 "costs": {
-                    "total": 6865712.5
+                    "total": 6227483.915
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 352660.0,
+                    "EU TS": 574097.67,
                     "FuelEU": 3272983.36
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -9381,7 +9256,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -9439,16 +9313,16 @@
                     "FuelEU": 1170525.77
                 },
                 "costs": {
-                    "total": 2384299.131
+                    "total": 2174423.424
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 246862.0,
+                    "EU TS": 246041.86,
                     "FuelEU": 1402707.16
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -9462,7 +9336,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -9512,16 +9385,16 @@
                     "FuelEU": 692128.23
                 },
                 "costs": {
-                    "total": 1564363.639
+                    "total": 1441452.018
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 211596.0,
+                    "EU TS": 139423.72,
                     "FuelEU": 794867.39
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -9535,7 +9408,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -9585,16 +9457,16 @@
                     "FuelEU": 321637.0
                 },
                 "costs": {
-                    "total": 811327.211
+                    "total": 758428.211
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 123431.0,
+                    "EU TS": 57409.77,
                     "FuelEU": 327298.34
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -9608,7 +9480,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -9658,16 +9529,16 @@
                     "FuelEU": 3514299.23
                 },
                 "costs": {
-                    "total": 7097795.622
+                    "total": 6343525.475
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 416780.0,
+                    "EU TS": 678479.07,
                     "FuelEU": 3272983.36
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -9681,7 +9552,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -9739,16 +9609,16 @@
                     "FuelEU": 1170525.77
                 },
                 "costs": {
-                    "total": 2460617.57
+                    "total": 2212582.643
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 291746.0,
+                    "EU TS": 290776.74,
                     "FuelEU": 1402707.16
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -9762,7 +9632,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -9812,16 +9681,16 @@
                     "FuelEU": 692128.23
                 },
                 "costs": {
-                    "total": 1609058.775
+                    "total": 1463799.585
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 250068.0,
+                    "EU TS": 164773.49,
                     "FuelEU": 794867.39
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -9835,7 +9704,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -9885,16 +9753,16 @@
                     "FuelEU": 321637.0
                 },
                 "costs": {
-                    "total": 830563.211
+                    "total": 768046.211
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 145873.0,
+                    "EU TS": 67847.91,
                     "FuelEU": 327298.34
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -9908,7 +9776,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -9958,16 +9825,16 @@
                     "FuelEU": 3514299.23
                 },
                 "costs": {
-                    "total": 7329878.744
+                    "total": 6459567.036
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 480900.0,
+                    "EU TS": 782860.47,
                     "FuelEU": 3272983.36
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -9981,7 +9848,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -10039,16 +9905,16 @@
                     "FuelEU": 1170525.77
                 },
                 "costs": {
-                    "total": 2536936.009
+                    "total": 2250741.863
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 336630.0,
+                    "EU TS": 335511.63,
                     "FuelEU": 1402707.16
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -10062,7 +9928,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -10112,16 +9977,16 @@
                     "FuelEU": 692128.23
                 },
                 "costs": {
-                    "total": 1653753.91
+                    "total": 1486147.153
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 288540.0,
+                    "EU TS": 190123.26,
                     "FuelEU": 794867.39
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -10135,7 +10000,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -10185,16 +10049,16 @@
                     "FuelEU": 321637.0
                 },
                 "costs": {
-                    "total": 849799.211
+                    "total": 777664.211
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 168315.0,
+                    "EU TS": 78286.05,
                     "FuelEU": 327298.34
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -10208,7 +10072,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -10258,16 +10121,16 @@
                     "FuelEU": 3514299.23
                 },
                 "costs": {
-                    "total": 7561961.866
+                    "total": 6575608.597
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 545020.0,
+                    "EU TS": 887241.86,
                     "FuelEU": 3272983.36
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -10281,7 +10144,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -10339,16 +10201,16 @@
                     "FuelEU": 1170525.77
                 },
                 "costs": {
-                    "total": 2613254.448
+                    "total": 2288901.082
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 381514.0,
+                    "EU TS": 380246.51,
                     "FuelEU": 1402707.16
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -10362,7 +10224,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -10412,16 +10273,16 @@
                     "FuelEU": 692128.23
                 },
                 "costs": {
-                    "total": 1698449.045
+                    "total": 1508494.72
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 327012.0,
+                    "EU TS": 215473.02,
                     "FuelEU": 794867.39
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -10435,7 +10296,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -10485,16 +10345,16 @@
                     "FuelEU": 321637.0
                 },
                 "costs": {
-                    "total": 869035.211
+                    "total": 787282.211
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 190757.0,
+                    "EU TS": 88724.19,
                     "FuelEU": 327298.34
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
@@ -10508,7 +10368,6 @@
             "Etotal_Berth": 70000000,
             "MDO_tonnes_Intra": 1500,
             "MDO_tonnes_Inter": 800,
-            "MDO_tonnes_Berth": 1000,
             "fuel_types_Intra": [
                 "VLSFO"
             ],
@@ -10558,16 +10417,16 @@
                     "FuelEU": 3514299.23
                 },
                 "costs": {
-                    "total": 7794044.988
+                    "total": 6691650.158
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 609140.0,
+                    "EU TS": 991623.26,
                     "FuelEU": 3272983.36
                 },
                 "costs": {
-                    "total": 831500.0
+                    "total": 1353604.65
                 }
             }
         }
@@ -10581,7 +10440,6 @@
             "Etotal_Berth": 30000000,
             "MDO_tonnes_Intra": 1200,
             "MDO_tonnes_Inter": 600,
-            "MDO_tonnes_Berth": 700,
             "fuel_types_Intra": [
                 "VLSFO",
                 "BIO-DIESEL"
@@ -10639,16 +10497,16 @@
                     "FuelEU": 1170525.77
                 },
                 "costs": {
-                    "total": 2689572.887
+                    "total": 2327060.302
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 426398.0,
+                    "EU TS": 424981.4,
                     "FuelEU": 1402707.16
                 },
                 "costs": {
-                    "total": 582050.0
+                    "total": 580116.28
                 }
             }
         }
@@ -10662,7 +10520,6 @@
             "Etotal_Berth": 17000000,
             "MDO_tonnes_Intra": 1000,
             "MDO_tonnes_Inter": 500,
-            "MDO_tonnes_Berth": 600,
             "fuel_types_Intra": [
                 "LNG"
             ],
@@ -10712,16 +10569,16 @@
                     "FuelEU": 692128.23
                 },
                 "costs": {
-                    "total": 1743144.18
+                    "total": 1530842.288
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 365484.0,
+                    "EU TS": 240822.79,
                     "FuelEU": 794867.39
                 },
                 "costs": {
-                    "total": 498900.0
+                    "total": 328732.56
                 }
             }
         }
@@ -10735,7 +10592,6 @@
             "Etotal_Berth": 7000000,
             "MDO_tonnes_Intra": 600,
             "MDO_tonnes_Inter": 300,
-            "MDO_tonnes_Berth": 350,
             "fuel_types_Intra": [
                 "E-METHANOL"
             ],
@@ -10785,16 +10641,16 @@
                     "FuelEU": 321637.0
                 },
                 "costs": {
-                    "total": 888271.211
+                    "total": 796900.211
                 }
             },
             "Berth": {
                 "penalties": {
-                    "EU TS": 213199.0,
+                    "EU TS": 99162.33,
                     "FuelEU": 327298.34
                 },
                 "costs": {
-                    "total": 291025.0
+                    "total": 135360.47
                 }
             }
         }
