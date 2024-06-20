@@ -57,8 +57,8 @@
     },
     "MDO": {
         "price_min": 475,
-        "emissions_min": 26.9,
         "price_max": 1188,
+        "emissions_min": 26.9,
         "emissions_max": 67.2
     },
     "LNG": {

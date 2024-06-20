@@ -72,16 +72,41 @@ def find_optimal_fuel_mix(E_total, selected_fuels, MDO_tonnes, trip_type, year, 
     print(f"FuelEU Penalty {trip_type}: {Fuel_EU_Penalty:.2f} €")
     print(f"Optimal total cost {trip_type}: {best_result.fun:.3f} €")
 
-def berth_scenario(E_total, year, CO2_price_per_ton):
-    MDO_density = fuel_density['MDO']
-    MDO_tonnes = E_total / MDO_density  # Calculate MDO_tonnes from E_total and MDO_density
-    fuel_amounts = {'MDO': MDO_tonnes}
-    journey_fuel_costs, _, Fuel_EU_Penalty, EU_TS_Penalty = calculate_costs_and_penalties(fuel_amounts, E_total, year, CO2_price_per_ton)
+def berth_scenario(E_total, year, CO2_price_per_ton, OPS_at_berth, total_installed_power, established_power_demand, hours_at_berth):
+    if OPS_at_berth:
+        # When OPS is used, assume no MDO is used and no emissions are produced at berth
+        print("OPS is used at berth. No MDO usage and no direct emissions.")
+        MDO_tonnes = 0
+        journey_fuel_costs = {'min': 0, 'max': 0, 'average': 0}
+        Fuel_EU_Penalty = 0
+        EU_TS_Penalty = 0
+
+        # Calculate OPS penalty
+        OPS_penalty = 1.5 * established_power_demand * hours_at_berth
+    else:
+        # Standard calculation if OPS is not used
+        MDO_density = fuel_density['MDO']
+        MDO_tonnes = E_total / MDO_density  # Calculate MDO_tonnes from E_total and MDO_density
+        fuel_amounts = {'MDO': MDO_tonnes}
+        journey_fuel_costs, _, Fuel_EU_Penalty, EU_TS_Penalty = calculate_costs_and_penalties(fuel_amounts, E_total, year, CO2_price_per_ton)
+        OPS_penalty = 0
+
+    # Output the results for berth
     print("For Berth:")
     print(f"Fuel amount (tonnes) berth: {MDO_tonnes:.2f}")
     print(f"EU TS Penalty berth: {EU_TS_Penalty:.2f} €")
     print(f"FuelEU Penalty berth: {Fuel_EU_Penalty:.2f} €")
-    print(f"Total cost berth: {journey_fuel_costs['average']:.2f} €")
+    if OPS_at_berth:
+        print(f"OPS Penalty berth: {OPS_penalty:.2f} €")
+        # Calculate the total cost for berth including the OPS penalty
+        total_berth_cost = journey_fuel_costs['average'] + EU_TS_Penalty + Fuel_EU_Penalty + OPS_penalty
+    else:
+        # Calculate the total cost for berth without the OPS penalty
+        total_berth_cost = journey_fuel_costs['average'] + EU_TS_Penalty + Fuel_EU_Penalty
+
+    print(f"Total cost berth: {total_berth_cost:.2f} €")
+
+
 
 def get_user_input():
     year = int(input("Enter the target year for GHGi compliance (e.g., 2025, 2030): "))
@@ -91,21 +116,20 @@ def get_user_input():
     E_totals = {}
     MDO_tonnes = {}
     selected_fuels = {}
+    OPS_flags = {}  # Dictionary to store whether OPS is used for each trip type
+    OPS_details = {}  # Dictionary to store OPS specific details if used
     trip_types = ['intra-eu', 'inter-eu', 'berth']
 
     for trip_type in trip_types:
         # For every trip type, ask the Etotal
         E_totals[trip_type] = float(input(f"Enter the total energy (MJ) required for {trip_type.replace('-', ' ').title()}: "))
-
         if trip_type != 'berth':
             # If trip type is not Berth, ask for MDO tonnes and other fuel types
             MDO_tonnes[trip_type] = float(input(f"Enter the MDO used (in tonnes) for {trip_type.replace('-', ' ').title()}: "))
-
             available_fuels = list(fuel_density.keys())
             print("Available fuels:", ", ".join(available_fuels))
             num_fuels = int(input(f"Enter the number of fuel types to consider for {trip_type.replace('-', ' ').title()}: "))
             selected_fuels[trip_type] = []
-
             for _ in range(num_fuels):
                 fuel = input(f"Enter a fuel type for {trip_type.replace('-', ' ').title()}: ").upper()
                 if fuel in available_fuels:
@@ -113,8 +137,22 @@ def get_user_input():
                 else:
                     print("Invalid fuel type! Available types are:", ", ".join(available_fuels))
                     break  # Break on invalid fuel type to prevent further errors
+        else:
+            # For Berth, check if OPS is used
+            OPS_use = input("Is OPS used at berth? (yes/no): ").strip().lower() == 'yes'
+            OPS_flags[trip_type] = OPS_use
+            if OPS_use:
+                # Only ask for OPS details if OPS is used
+                total_installed_power = float(input("Enter the total installed power (MW) for the ship: "))
+                established_power_demand = float(input("Enter the established power demand at berth (MW): "))
+                hours_at_berth = int(input("Enter the number of hours at berth: "))
+                OPS_details[trip_type] = {
+                    'total_installed_power': total_installed_power,
+                    'established_power_demand': established_power_demand,
+                    'hours_at_berth': hours_at_berth
+                }
 
-    return year, CO2_price_per_ton, E_totals, MDO_tonnes, selected_fuels
+    return year, CO2_price_per_ton, E_totals, MDO_tonnes, selected_fuels, OPS_flags, OPS_details
 
 def calculate_energy_content(fuel_amounts, densities):
     # Calculate the total energy content based on the amount and density of fuels.
@@ -122,9 +160,24 @@ def calculate_energy_content(fuel_amounts, densities):
 
 
 if __name__ == "__main__":
-    year, CO2_price_per_ton, E_totals, MDO_tonnes, selected_fuels = get_user_input()
+    # Updated to capture OPS flags and details
+    year, CO2_price_per_ton, E_totals, MDO_tonnes, selected_fuels, OPS_flags, OPS_details = get_user_input()
+
     for trip_type in ['intra-eu', 'inter-eu']:
         if selected_fuels.get(trip_type):
             find_optimal_fuel_mix(E_totals[trip_type], selected_fuels[trip_type], MDO_tonnes[trip_type], trip_type, year, CO2_price_per_ton)
+
     if E_totals['berth'] > 0:
-        berth_scenario(E_totals['berth'], year, CO2_price_per_ton)
+        # Retrieve OPS specific parameters for berth scenario
+        OPS_at_berth = OPS_flags.get('berth', False)
+        if OPS_at_berth:
+            # If OPS is used, retrieve the specific parameters for OPS
+            ops_info = OPS_details.get('berth', {})
+            total_installed_power = ops_info.get('total_installed_power', 0)
+            established_power_demand = ops_info.get('established_power_demand', 0)
+            hours_at_berth = ops_info.get('hours_at_berth', 0)
+            berth_scenario(E_totals['berth'], year, CO2_price_per_ton, OPS_at_berth, total_installed_power, established_power_demand, hours_at_berth)
+        else:
+            # Call berth scenario without OPS parameters
+            berth_scenario(E_totals['berth'], year, CO2_price_per_ton, OPS_at_berth, 0, 0, 0)
+
