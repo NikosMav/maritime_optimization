@@ -29,14 +29,13 @@ def load_ghgi_targets(filename='../json/ghgi_targets.json'):
         ghgi_targets = json.load(file)
     return ghgi_targets
 
-def calculate_GHGi_target(year, fwind=1.0):
+def calculate_GHGi_target(year):
     ghgi_targets = load_ghgi_targets()
     reference_value = ghgi_targets['reference_value']
     targets = ghgi_targets['targets']
     reduction_percentage = targets.get(str(year), 0)  # JSON keys are strings, ensure to match the type
     adjusted_target = reference_value * (1 - reduction_percentage / 100)
-    # Adjust the target by the fwind factor
-    return adjusted_target * fwind
+    return adjusted_target
 
 
 def calculate_fuel_costs(fuel_data, fuel_amounts_tonnes, year):
@@ -62,13 +61,13 @@ def calculate_fuel_costs(fuel_data, fuel_amounts_tonnes, year):
             raise ValueError(f"Fuel type '{fuel_type}' not found in the data.")
     return total_fuel_costs
 
-def calculate_GHGi_actual(fuel_percentages, WtW_factors, fwind=1.0):
+def calculate_GHGi_actual(fuel_percentages, WtW_factors):
     total_GHG = sum((fuel_percentages[fuel] / 100) * WtW_factors[fuel] for fuel in fuel_percentages)
-    GHGi_actual = total_GHG * fwind  # Apply fwind to reduce GHGi proportionally
+    GHGi_actual = total_GHG
     return GHGi_actual
 
-def calculate_Fuel_EU_Penalty(GHGi_actual, E_total, GHGi_target):
-    CB = (GHGi_target - GHGi_actual) * E_total
+def calculate_Fuel_EU_Penalty(GHGi_actual, E_total, GHGi_target, fwind=1.0):
+    CB = fwind * (GHGi_target - GHGi_actual) * E_total
     # Only calculate FuelEU penalty if CB is negative (non-compliant)
     if CB < 0:
         Fuel_EU_Penalty = abs(CB) / (GHGi_actual * 41000) * 2400
@@ -99,9 +98,9 @@ def calculate_costs_and_penalties(fuel_amounts_tonnes, E_total, year, CO2_price_
 
     total_fuel = sum(fuel_amounts_tonnes.values())
     fuel_percentages = {fuel: (amount / total_fuel) * 100 for fuel, amount in fuel_amounts_tonnes.items()}
-    GHGi_actual = calculate_GHGi_actual(fuel_percentages, wtw_factors, fwind)
-    GHGi_target = calculate_GHGi_target(year, fwind)
-    CB, Fuel_EU_Penalty = calculate_Fuel_EU_Penalty(GHGi_actual, E_total, GHGi_target)
+    GHGi_actual = calculate_GHGi_actual(fuel_percentages, wtw_factors)
+    GHGi_target = calculate_GHGi_target(year)
+    CB, Fuel_EU_Penalty = calculate_Fuel_EU_Penalty(GHGi_actual, E_total, GHGi_target, fwind)
 
     return journey_fuel_costs, CB, Fuel_EU_Penalty, EU_TS_Penalty
 
