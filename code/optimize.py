@@ -13,7 +13,7 @@ def calculate_fuel_amounts(percentages, E_total, densities, fixed_fuel, fixed_am
     fuel_amounts[fixed_fuel] = fixed_amount
     return fuel_amounts
 
-def objective_function(x, E_total, fuel_types, densities, fixed_fuel, fixed_amount, trip_type, year, CO2_price_per_ton):
+def objective_function(x, E_total, fuel_types, densities, fixed_fuel, fixed_amount, trip_type, year, CO2_price_per_ton, fwind):
     percentages = {fuel_types[i]: x[i] for i in range(len(fuel_types))}
     percentages[fixed_fuel] = 100 - sum(x)  # Ensure total is 100%
     fuel_amounts = calculate_fuel_amounts(percentages, E_total, densities, fixed_fuel, fixed_amount)
@@ -22,7 +22,7 @@ def objective_function(x, E_total, fuel_types, densities, fixed_fuel, fixed_amou
     if trip_type == "inter-eu":
         E_total *= 0.5
 
-    journey_fuel_costs, _, Fuel_EU_Penalty, EU_TS_Penalty = calculate_costs_and_penalties(fuel_amounts, E_total, year, CO2_price_per_ton)
+    journey_fuel_costs, _, Fuel_EU_Penalty, EU_TS_Penalty = calculate_costs_and_penalties(fuel_amounts, E_total, year, CO2_price_per_ton, fwind)
 
     # Halve EU_TS_Penalty for inter-eu
     if trip_type == "inter-eu":
@@ -31,7 +31,7 @@ def objective_function(x, E_total, fuel_types, densities, fixed_fuel, fixed_amou
     # Sum Fuel costs, Fuel_EU_Penalty, and EU_TS_Penalty
     return journey_fuel_costs['average'] + Fuel_EU_Penalty + EU_TS_Penalty
 
-def find_optimal_fuel_mix(E_total, selected_fuels, MDO_tonnes, trip_type, year, CO2_price_per_ton):
+def find_optimal_fuel_mix(E_total, selected_fuels, MDO_tonnes, trip_type, year, CO2_price_per_ton, fwind):
     fixed_fuel = 'MDO'      # it is fixed since every trip type has MDO
     fixed_amount = MDO_tonnes
     # Checking if MDO is in selected_fuels and remove it
@@ -43,7 +43,7 @@ def find_optimal_fuel_mix(E_total, selected_fuels, MDO_tonnes, trip_type, year, 
     constraints = {'type': 'eq', 'fun': lambda x: sum(x) - 100}
     best_result = minimize(
         objective_function, initial_guess,
-        args=(E_total, selected_fuels, fuel_density, fixed_fuel, fixed_amount, trip_type, year, CO2_price_per_ton),
+        args=(E_total, selected_fuels, fuel_density, fixed_fuel, fixed_amount, trip_type, year, CO2_price_per_ton, fwind),
         bounds=bounds, constraints=constraints
     )
 
@@ -58,7 +58,7 @@ def find_optimal_fuel_mix(E_total, selected_fuels, MDO_tonnes, trip_type, year, 
         E_total *= 0.5
 
     # Get the final penalties
-    _, _, Fuel_EU_Penalty, EU_TS_Penalty = calculate_costs_and_penalties(fuel_amounts, E_total, year, CO2_price_per_ton)
+    _, _, Fuel_EU_Penalty, EU_TS_Penalty = calculate_costs_and_penalties(fuel_amounts, E_total, year, CO2_price_per_ton, fwind)
 
     # Halve the EU_TS_Penalty for inter
     if trip_type == "inter-eu":
@@ -72,7 +72,7 @@ def find_optimal_fuel_mix(E_total, selected_fuels, MDO_tonnes, trip_type, year, 
     print(f"FuelEU Penalty {trip_type}: {Fuel_EU_Penalty:.2f} €")
     print(f"Optimal total cost {trip_type}: {best_result.fun:.3f} €")
 
-def berth_scenario(E_total, year, CO2_price_per_ton, OPS_at_berth, total_installed_power, established_power_demand, hours_at_berth, cost_per_MWh):
+def berth_scenario(E_total, year, CO2_price_per_ton, OPS_at_berth, total_installed_power, established_power_demand, hours_at_berth, cost_per_MWh, fwind):
     MJ_to_MWh = 0.0002777778  # Conversion factor from MJ to MWh
 
     if OPS_at_berth:
@@ -93,7 +93,7 @@ def berth_scenario(E_total, year, CO2_price_per_ton, OPS_at_berth, total_install
         MDO_density = fuel_density['MDO']
         MDO_tonnes = E_total / MDO_density  # Calculate MDO_tonnes from E_total and MDO_density
         fuel_amounts = {'MDO': MDO_tonnes}
-        journey_fuel_costs, _, Fuel_EU_Penalty, EU_TS_Penalty = calculate_costs_and_penalties(fuel_amounts, E_total, year, CO2_price_per_ton)
+        journey_fuel_costs, _, Fuel_EU_Penalty, EU_TS_Penalty = calculate_costs_and_penalties(fuel_amounts, E_total, year, CO2_price_per_ton, fwind)
         OPS_penalty = 0
         OPS_cost = 0
 
@@ -119,6 +119,11 @@ def get_user_input():
     year = int(input("Enter the target year for GHGi compliance (e.g., 2025, 2030): "))
     CO2_price_per_ton = float(input("Enter the CO2 price per ton (€): "))
     cost_per_MWh = float(input("Enter the cost per MWh (€): "))
+    use_wind = input("Is wind-assisted propulsion used? (yes/no): ").strip().lower() == 'yes'
+    fwind = 1.0
+    if use_wind:
+        Pwind_Pprop = float(input("Enter the ratio of Pwind/Pprop (fwind): "))
+        fwind = max(0.95, min(0.99, Pwind_Pprop))
 
     E_totals = {}
     MDO_tonnes = {}
@@ -155,7 +160,7 @@ def get_user_input():
                     'hours_at_berth': hours_at_berth
                 }
 
-    return year, CO2_price_per_ton, cost_per_MWh, E_totals, MDO_tonnes, selected_fuels, OPS_flags, OPS_details
+    return year, CO2_price_per_ton, cost_per_MWh, E_totals, MDO_tonnes, selected_fuels, OPS_flags, OPS_details, fwind
 
 def calculate_energy_content(fuel_amounts, densities):
     # Calculate the total energy content based on the amount and density of fuels.
@@ -163,17 +168,17 @@ def calculate_energy_content(fuel_amounts, densities):
 
 
 if __name__ == "__main__":
-    year, CO2_price_per_ton, cost_per_MWh, E_totals, MDO_tonnes, selected_fuels, OPS_flags, OPS_details = get_user_input()
+    year, CO2_price_per_ton, cost_per_MWh, E_totals, MDO_tonnes, selected_fuels, OPS_flags, OPS_details, fwind = get_user_input()
 
     for trip_type in ['intra-eu', 'inter-eu']:
         if selected_fuels.get(trip_type):
-            find_optimal_fuel_mix(E_totals[trip_type], selected_fuels[trip_type], MDO_tonnes[trip_type], trip_type, year, CO2_price_per_ton)
+            find_optimal_fuel_mix(E_totals[trip_type], selected_fuels[trip_type], MDO_tonnes[trip_type], trip_type, year, CO2_price_per_ton, fwind)
 
     if E_totals['berth'] > 0:
         OPS_at_berth = OPS_flags.get('berth', False)
         if OPS_at_berth:
             ops_info = OPS_details.get('berth', {})
-            berth_scenario(E_totals['berth'], year, CO2_price_per_ton, OPS_at_berth, ops_info['total_installed_power'], ops_info['established_power_demand'], ops_info['hours_at_berth'], cost_per_MWh)
+            berth_scenario(E_totals['berth'], year, CO2_price_per_ton, OPS_at_berth, ops_info['total_installed_power'], ops_info['established_power_demand'], ops_info['hours_at_berth'], cost_per_MWh, fwind)
         else:
-            berth_scenario(E_totals['berth'], year, CO2_price_per_ton, OPS_at_berth, 0, 0, 0, cost_per_MWh)
+            berth_scenario(E_totals['berth'], year, CO2_price_per_ton, OPS_at_berth, 0, 0, 0, cost_per_MWh, fwind)
 

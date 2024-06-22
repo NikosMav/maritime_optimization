@@ -29,12 +29,15 @@ def load_ghgi_targets(filename='../json/ghgi_targets.json'):
         ghgi_targets = json.load(file)
     return ghgi_targets
 
-def set_GHGi_target(year):
+def calculate_GHGi_target(year, fwind=1.0):
     ghgi_targets = load_ghgi_targets()
     reference_value = ghgi_targets['reference_value']
     targets = ghgi_targets['targets']
     reduction_percentage = targets.get(str(year), 0)  # JSON keys are strings, ensure to match the type
-    return reference_value * (1 - reduction_percentage / 100)
+    adjusted_target = reference_value * (1 - reduction_percentage / 100)
+    # Adjust the target by the fwind factor
+    return adjusted_target * fwind
+
 
 def calculate_fuel_costs(fuel_data, fuel_amounts_tonnes, year):
     total_fuel_costs = {'min': 0, 'max': 0, 'average': 0}
@@ -59,9 +62,9 @@ def calculate_fuel_costs(fuel_data, fuel_amounts_tonnes, year):
             raise ValueError(f"Fuel type '{fuel_type}' not found in the data.")
     return total_fuel_costs
 
-def calculate_GHGi_actual(fuel_percentages, WtW_factors):
+def calculate_GHGi_actual(fuel_percentages, WtW_factors, fwind=1.0):
     total_GHG = sum((fuel_percentages[fuel] / 100) * WtW_factors[fuel] for fuel in fuel_percentages)
-    GHGi_actual = total_GHG
+    GHGi_actual = total_GHG * fwind  # Apply fwind to reduce GHGi proportionally
     return GHGi_actual
 
 def calculate_Fuel_EU_Penalty(GHGi_actual, E_total, GHGi_target):
@@ -84,7 +87,7 @@ def calculate_EU_TS_Penalty(total_CO2_emissions, CO2_price_per_ton):
     EU_TS_Penalty = total_CO2_emissions * CO2_price_per_ton
     return EU_TS_Penalty
 
-def calculate_costs_and_penalties(fuel_amounts_tonnes, E_total, year, CO2_price_per_ton):
+def calculate_costs_and_penalties(fuel_amounts_tonnes, E_total, year, CO2_price_per_ton, fwind):
     fuel_data = load_fuel_data()
     wtw_factors = load_wtw_factors()
     co2_factors = load_co2_emission_factors()
@@ -96,8 +99,8 @@ def calculate_costs_and_penalties(fuel_amounts_tonnes, E_total, year, CO2_price_
 
     total_fuel = sum(fuel_amounts_tonnes.values())
     fuel_percentages = {fuel: (amount / total_fuel) * 100 for fuel, amount in fuel_amounts_tonnes.items()}
-    GHGi_actual = calculate_GHGi_actual(fuel_percentages, wtw_factors)
-    GHGi_target = set_GHGi_target(year)
+    GHGi_actual = calculate_GHGi_actual(fuel_percentages, wtw_factors, fwind)
+    GHGi_target = calculate_GHGi_target(year, fwind)
     CB, Fuel_EU_Penalty = calculate_Fuel_EU_Penalty(GHGi_actual, E_total, GHGi_target)
 
     return journey_fuel_costs, CB, Fuel_EU_Penalty, EU_TS_Penalty
