@@ -21,15 +21,16 @@ for entry in data:
     if isinstance(total_cost, dict):
         total_cost = total_cost.get('total', 0)
 
-    # Retrieve penalties and calculate fuel costs
+    # Retrieve penalties
     EU_TS_penalty = total_results.get('penalties', {}).get('EU TS', 0)
     FuelEU_penalty = total_results.get('penalties', {}).get('FuelEU', 0)
     OPS_penalty = total_results.get('penalties', {}).get('OPS', 0)
-    fuel_costs = total_cost - (EU_TS_penalty + FuelEU_penalty + OPS_penalty)
-
     # Retrieve the OPS cost if available
     berth_results = results.get('Berth', {})
     OPS_cost = berth_results.get('OPS_cost', 0)
+    
+    # Fuel costs are calculated by subtracting all of the penalties and if OPS is enabled, then the OPS penalty and the OPS cost.
+    fuel_costs = total_cost - (EU_TS_penalty + FuelEU_penalty + OPS_penalty + OPS_cost)
 
     row = {
         'year': year,

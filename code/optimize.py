@@ -113,8 +113,6 @@ def berth_scenario(E_total, year, CO2_price_per_ton, OPS_at_berth, total_install
 
     print(f"Total cost berth: {total_berth_cost:.2f} €")
 
-
-
 def get_user_input():
     year = int(input("Enter the target year for GHGi compliance (e.g., 2025, 2030): "))
     CO2_price_per_ton = float(input("Enter the CO2 price per ton (€): "))
