@@ -49,7 +49,7 @@ def parse_output(output):
                 results[trip_type]["fuel_types"] = ast.literal_eval(line.split(':', 1)[1].strip())
             elif "Optimal percentages" in line:
                 results[trip_type]["percentages"] = ast.literal_eval(line.split(':', 1)[1].strip())
-            elif "Optimal fuel amounts" in line:
+            elif "amounts (tonnes)" in line:
                 results[trip_type]["amounts"] = ast.literal_eval(line.split(':', 1)[1].strip())
             elif "EU TS Penalty" in line or "FuelEU Penalty" in line:
                 penalty_key = "EU TS" if "EU TS" in line else "FuelEU"

@@ -74,11 +74,11 @@ def find_optimal_fuel_mix(E_total, selected_fuels, MDO_tonnes, trip_type, year, 
 
 def berth_scenario(E_total, year, CO2_price_per_ton, OPS_at_berth, total_installed_power, established_power_demand, hours_at_berth, cost_per_MWh, fwind):
     MJ_to_MWh = 0.0002777778  # Conversion factor from MJ to MWh
+    fuel_amounts = {'MDO': 0}# Initialize to zero initially
 
     if OPS_at_berth:
         # When OPS is used, assume no MDO is used and no emissions are produced at berth
         print("OPS is used at berth. No MDO usage and no direct emissions.")
-        MDO_tonnes = 0
         journey_fuel_costs = {'min': 0, 'max': 0, 'average': 0}
         Fuel_EU_Penalty = 0
         EU_TS_Penalty = 0
@@ -92,14 +92,14 @@ def berth_scenario(E_total, year, CO2_price_per_ton, OPS_at_berth, total_install
         # Standard calculation if OPS is not used
         MDO_density = fuel_density['MDO']
         MDO_tonnes = E_total / MDO_density  # Calculate MDO_tonnes from E_total and MDO_density
-        fuel_amounts = {'MDO': MDO_tonnes}
+        fuel_amounts['MDO'] = MDO_tonnes
         journey_fuel_costs, _, Fuel_EU_Penalty, EU_TS_Penalty = calculate_costs_and_penalties(fuel_amounts, E_total, year, CO2_price_per_ton, fwind)
         OPS_penalty = 0
         OPS_cost = 0
 
     # Output the results for berth
     print("For Berth:")
-    print(f"Fuel amount (tonnes) berth: {MDO_tonnes:.2f}")
+    print(f"Fuel amounts (tonnes) berth: ", fuel_amounts)
     print(f"EU TS Penalty berth: {EU_TS_Penalty:.2f} €")
     print(f"FuelEU Penalty berth: {Fuel_EU_Penalty:.2f} €")
     if OPS_at_berth:
@@ -117,11 +117,11 @@ def get_user_input():
     year = int(input("Enter the target year for GHGi compliance (e.g., 2025, 2030): "))
     CO2_price_per_ton = float(input("Enter the CO2 price per ton (€): "))
     cost_per_MWh = float(input("Enter the cost per MWh (€): "))
-    use_wind = input("Is wind-assisted propulsion used? (yes/no): ").strip().lower() == 'yes'
+    # use_wind = input("Is wind-assisted propulsion used? (yes/no): ").strip().lower() == 'yes'
     fwind = 1.0
-    if use_wind:
-        Pwind_Pprop = float(input("Enter the ratio of Pwind/Pprop (fwind): "))
-        fwind = max(0.95, min(0.99, Pwind_Pprop))
+    # if use_wind:
+    #     Pwind_Pprop = float(input("Enter the ratio of Pwind/Pprop (fwind): "))
+    #     fwind = max(0.95, min(0.99, Pwind_Pprop))
 
     E_totals = {}
     MDO_tonnes = {}
