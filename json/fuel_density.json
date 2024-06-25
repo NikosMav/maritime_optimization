@@ -1,7 +1,8 @@
 {
+    "HFO": 40500,
     "VLSFO": 41000,
-    "LNG": 37000,
-    "MDO": 43000,
+    "LNG": 49100,
+    "MDO": 42700,
     "E-METHANOL": 19900,
-    "BIO-DIESEL": 48000
+    "BIO-DIESEL": 43000
 }
