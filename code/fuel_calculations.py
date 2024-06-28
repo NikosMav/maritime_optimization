@@ -29,15 +29,6 @@ def load_ghgi_targets(filename='../json/ghgi_targets.json'):
         ghgi_targets = json.load(file)
     return ghgi_targets
 
-def calculate_GHGi_target(year):
-    ghgi_targets = load_ghgi_targets()
-    reference_value = ghgi_targets['reference_value']
-    targets = ghgi_targets['targets']
-    reduction_percentage = targets.get(str(year), 0)  # JSON keys are strings, ensure to match the type
-    adjusted_target = reference_value * (1 - reduction_percentage / 100)
-    return adjusted_target
-
-
 def calculate_fuel_costs(fuel_data, fuel_amounts_tonnes, year):
     total_fuel_costs = {'min': 0, 'max': 0, 'average': 0}
     for fuel_type, fuel_tonnes in fuel_amounts_tonnes.items():
@@ -65,6 +56,14 @@ def calculate_GHGi_actual(fuel_percentages, WtW_factors):
     total_GHG = sum((fuel_percentages[fuel] / 100) * WtW_factors[fuel] for fuel in fuel_percentages)
     GHGi_actual = total_GHG
     return GHGi_actual
+
+def calculate_GHGi_target(year):
+    ghgi_targets = load_ghgi_targets()
+    reference_value = ghgi_targets['reference_value']
+    targets = ghgi_targets['targets']
+    reduction_percentage = targets.get(str(year), 0)  # JSON keys are strings, ensure to match the type
+    adjusted_target = reference_value * (1 - reduction_percentage / 100)
+    return adjusted_target
 
 def calculate_Fuel_EU_Penalty(GHGi_actual, E_total, GHGi_target, fwind):
     CB = fwind * (GHGi_target - GHGi_actual) * E_total

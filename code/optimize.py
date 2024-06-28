@@ -74,7 +74,7 @@ def find_optimal_fuel_mix(E_total, selected_fuels, MDO_tonnes, trip_type, year, 
 
 def berth_scenario(E_total, year, CO2_price_per_ton, OPS_at_berth, total_installed_power, established_power_demand, hours_at_berth, cost_per_MWh, fwind):
     MJ_to_MWh = 0.0002777778  # Conversion factor from MJ to MWh
-    fuel_amounts = {'MDO': 0}# Initialize to zero initially
+    fuel_amounts = {'MDO': 0} # Initialize to zero initially
 
     if OPS_at_berth:
         # When OPS is used, assume no MDO is used and no emissions are produced at berth
