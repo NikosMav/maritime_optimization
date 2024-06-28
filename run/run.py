@@ -51,8 +51,8 @@ def parse_output(output):
                 results[trip_type]["percentages"] = ast.literal_eval(line.split(':', 1)[1].strip())
             elif "amounts (tonnes)" in line:
                 results[trip_type]["amounts"] = ast.literal_eval(line.split(':', 1)[1].strip())
-            elif "EU TS Penalty" in line or "FuelEU Penalty" in line:
-                penalty_key = "EU TS" if "EU TS" in line else "FuelEU"
+            elif "EU ETS Penalty" in line or "FuelEU Penalty" in line:
+                penalty_key = "EU ETS" if "EU ETS" in line else "FuelEU"
                 penalty_value = float(line.split(':')[1].strip().split('€')[0])
                 results[trip_type]["penalties"] = results[trip_type].get("penalties", {})
                 results[trip_type]["penalties"][penalty_key] = results[trip_type]["penalties"].get(penalty_key, 0) + penalty_value

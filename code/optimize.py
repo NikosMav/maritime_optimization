@@ -22,14 +22,14 @@ def objective_function(x, E_total, fuel_types, densities, fixed_fuel, fixed_amou
     if trip_type == "inter-eu":
         E_total *= 0.5
 
-    journey_fuel_costs, _, Fuel_EU_Penalty, EU_TS_Penalty = calculate_costs_and_penalties(fuel_amounts, E_total, year, CO2_price_per_ton, fwind)
+    journey_fuel_costs, _, Fuel_EU_Penalty, EU_ETS_Penalty = calculate_costs_and_penalties(fuel_amounts, E_total, year, CO2_price_per_ton, fwind)
 
     # Halve EU_TS_Penalty for inter-eu
     if trip_type == "inter-eu":
-        EU_TS_Penalty *= 0.5
+        EU_ETS_Penalty *= 0.5
 
     # Sum Fuel costs, Fuel_EU_Penalty, and EU_TS_Penalty
-    return journey_fuel_costs['average'] + Fuel_EU_Penalty + EU_TS_Penalty
+    return journey_fuel_costs['average'] + Fuel_EU_Penalty + EU_ETS_Penalty
 
 def find_optimal_fuel_mix(E_total, selected_fuels, MDO_tonnes, trip_type, year, CO2_price_per_ton, fwind):
     fixed_fuel = 'MDO'      # it is fixed since every trip type has MDO
@@ -58,17 +58,17 @@ def find_optimal_fuel_mix(E_total, selected_fuels, MDO_tonnes, trip_type, year, 
         E_total *= 0.5
 
     # Get the final penalties
-    _, _, Fuel_EU_Penalty, EU_TS_Penalty = calculate_costs_and_penalties(fuel_amounts, E_total, year, CO2_price_per_ton, fwind)
+    _, _, Fuel_EU_Penalty, EU_ETS_Penalty = calculate_costs_and_penalties(fuel_amounts, E_total, year, CO2_price_per_ton, fwind)
 
     # Halve the EU_TS_Penalty for inter
     if trip_type == "inter-eu":
-        EU_TS_Penalty *= 0.5
+        EU_ETS_Penalty *= 0.5
 
     print(f"For {trip_type}:")
     print(f"Optimal fuel types {trip_type}:", selected_fuels + [fixed_fuel])
     print(f"Optimal percentages {trip_type}:", actual_percentages)
     print(f"Optimal fuel amounts (tonnes) {trip_type}:", fuel_amounts)
-    print(f"EU TS Penalty {trip_type}: {EU_TS_Penalty:.2f} €")
+    print(f"EU ETS Penalty {trip_type}: {EU_ETS_Penalty:.2f} €")
     print(f"FuelEU Penalty {trip_type}: {Fuel_EU_Penalty:.2f} €")
     print(f"Optimal total cost {trip_type}: {best_result.fun:.3f} €")
 
@@ -81,7 +81,7 @@ def berth_scenario(E_total, year, CO2_price_per_ton, OPS_at_berth, total_install
         print("OPS is used at berth. No MDO usage and no direct emissions.")
         journey_fuel_costs = {'min': 0, 'max': 0, 'average': 0}
         Fuel_EU_Penalty = 0
-        EU_TS_Penalty = 0
+        EU_ETS_Penalty = 0
 
         # Calculate OPS penalty
         OPS_penalty = 1.5 * established_power_demand * hours_at_berth
@@ -93,23 +93,23 @@ def berth_scenario(E_total, year, CO2_price_per_ton, OPS_at_berth, total_install
         MDO_density = fuel_density['MDO']
         MDO_tonnes = E_total / MDO_density  # Calculate MDO_tonnes from E_total and MDO_density
         fuel_amounts['MDO'] = MDO_tonnes
-        journey_fuel_costs, _, Fuel_EU_Penalty, EU_TS_Penalty = calculate_costs_and_penalties(fuel_amounts, E_total, year, CO2_price_per_ton, fwind)
+        journey_fuel_costs, _, Fuel_EU_Penalty, EU_ETS_Penalty = calculate_costs_and_penalties(fuel_amounts, E_total, year, CO2_price_per_ton, fwind)
         OPS_penalty = 0
         OPS_cost = 0
 
     # Output the results for berth
     print("For Berth:")
     print(f"Fuel amounts (tonnes) berth: ", fuel_amounts)
-    print(f"EU TS Penalty berth: {EU_TS_Penalty:.2f} €")
+    print(f"EU ETS Penalty berth: {EU_ETS_Penalty:.2f} €")
     print(f"FuelEU Penalty berth: {Fuel_EU_Penalty:.2f} €")
     if OPS_at_berth:
         print(f"OPS Penalty berth: {OPS_penalty:.2f} €")
         print(f"OPS Cost berth: {OPS_cost:.2f} €")
         # Calculate the total cost for berth including the OPS penalty
-        total_berth_cost = journey_fuel_costs['average'] + EU_TS_Penalty + Fuel_EU_Penalty + OPS_penalty + OPS_cost
+        total_berth_cost = journey_fuel_costs['average'] + EU_ETS_Penalty + Fuel_EU_Penalty + OPS_penalty + OPS_cost
     else:
         # Calculate the total cost for berth without the OPS penalty
-        total_berth_cost = journey_fuel_costs['average'] + EU_TS_Penalty + Fuel_EU_Penalty
+        total_berth_cost = journey_fuel_costs['average'] + EU_ETS_Penalty + Fuel_EU_Penalty
 
     print(f"Total cost berth: {total_berth_cost:.2f} €")
 
