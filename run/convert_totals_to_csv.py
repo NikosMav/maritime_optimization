@@ -22,7 +22,7 @@ for entry in data:
         total_cost = total_cost.get('total', 0)
 
     # Retrieve penalties and OPS costs
-    EU_TS_penalty = total_results.get('penalties', {}).get('EU TS', 0)
+    EU_ETS_penalty = total_results.get('penalties', {}).get('EU ETS', 0)
     FuelEU_penalty = total_results.get('penalties', {}).get('FuelEU', 0)
     OPS_penalty = total_results.get('penalties', {}).get('OPS', 0)
     berth_results = results.get('Berth', {})
@@ -39,7 +39,7 @@ for entry in data:
                     fuel_totals[fuel] = amount
 
     # Calculate the fuel costs
-    fuel_costs = total_cost - (EU_TS_penalty + FuelEU_penalty + OPS_penalty + OPS_cost)
+    fuel_costs = total_cost - (EU_ETS_penalty + FuelEU_penalty + OPS_penalty + OPS_cost)
 
     # Create a row for each fuel type for detailed breakdown in the CSV
     for fuel, total_amount in fuel_totals.items():
@@ -48,7 +48,7 @@ for entry in data:
             'CO2_price': CO2_price,
             'total_cost': total_cost,
             'fuel_costs': fuel_costs,
-            'EU_TS_penalty': EU_TS_penalty,
+            'EU_ETS_penalty': EU_ETS_penalty,
             'FuelEU_penalty': FuelEU_penalty,
             'OPS_penalty': OPS_penalty,
             'OPS_cost': OPS_cost,

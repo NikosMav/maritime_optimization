@@ -1,0 +1,78 @@
+Inputs: 
+	Intra EU
+	HFO:2000
+	VLSFO:500
+	MDO:10
+
+	Inter EU
+	HFO:7000
+	VLSFO:800
+	MDO:10
+
+	Berth:
+	HFO:
+	VLSFO:
+	MDO:30
+
+Do you want to use Fuel Maritime Optimization Fuel Price? Yes No
+If no
+
+Give Fuel Prices:
+	HFO:
+	VLSFO:
+	MDO:
+	BIOFUEL:
+	OPS price (electricity)
+
+Select Year for calculation
+
+Scenario 1: Calculate cost for BAU (See Inputs)
+
+Outputs [For Internal Use]
+
+HFO [tonnes], VLSFO [tonnes], MDO [tonnes], %HFO, %VLSFO, %MDO, Annual GHG Intensity, Intra EU energy[MJ], Inter EU energy[MJ], Berth EU energy[MJ], Total Applicable Energy[MJ], Compliance balance[tCO2], Fuel EU Cost [euro], Fuel Cost [Euro]
+
+
+For EU TS Calculate: IntraEU Emissions [tonnes], InterEU Emissions [tonnes],Berth Emissions [tonnes], EU TS Cost [euro]
+
+Output [For Client]: Compliance Balance[tCO2], Fuel EU Cost[Euro], EU TS Allowances [tonnes] ( its the sum of IntraEU Emissions [tonnes], InterEU Emissions [tonnes],Berth Emissions [tonnes]), Fuel Cost Total Cost
+
+For Altenatives:
+Select scenario: Biodiesel, LNG, Emathanol, Ops, Wind assist
+
+For Eintra, Einter, Eberth same as BAU Optimisize scenarios
+
+For Biodeisel:
+
+Outputs [For Internal Use]
+
+HFO [tonnes], VLSFO [tonnes], MDO [tonnes], Biodiesel[tonnes], %HFO, %VLSFO, %MDO, %Biodiesel, Annual GHG Intensity, Intra EU energy[MJ], Inter EU energy[MJ], Berth EU energy[MJ], Total Applicable Energy[MJ], Compliance balance[tCO2], Fuel EU Cost [euro], Fuel Cost [Euro]
+
+
+For EU TS Calculate: IntraEU Emissions [tonnes], InterEU Emissions [tonnes],Berth Emissions [tonnes], EU TS Cost [euro]
+
+Output [For Client]: Compliance Balance[tCO2], Fuel EU Cost[Euro], EU TS Allowances [tonnes] ( its the sum of IntraEU Emissions [tonnes], InterEU Emissions [tonnes],Berth Emissions [tonnes]), Fuel Cost Total Cost
+
+For LNG:
+
+Outputs [For Internal Use]
+
+HFO [tonnes], VLSFO [tonnes], MDO [tonnes], LNG [tonnes], %HFO, %VLSFO, %MDO, %LNG, Annual GHG Intensity, Intra EU energy[MJ], Inter EU energy[MJ], Berth EU energy[MJ], Total Applicable Energy[MJ], Compliance balance[tCO2], Fuel EU Cost [euro], Fuel Cost [Euro]
+
+
+For EU TS Calculate: IntraEU Emissions [tonnes], InterEU Emissions [tonnes],Berth Emissions [tonnes], EU TS Cost [euro]
+
+Output [For Client]: Compliance Balance[tCO2], Fuel EU Cost[Euro], EU TS Allowances [tonnes] ( its the sum of IntraEU Emissions [tonnes], InterEU Emissions [tonnes],Berth Emissions [tonnes]), Fuel Cost Total Cost
+
+
+For eMathanol:
+
+Outputs [For Internal Use]
+
+HFO [tonnes], VLSFO [tonnes], MDO [tonnes], emathanol[tonnes], %HFO, %VLSFO, %MDO, %emathanol, Annual GHG Intensity, Intra EU energy[MJ], Inter EU energy[MJ], Berth EU energy[MJ], Total Applicable Energy[MJ], Compliance balance[tCO2], Fuel EU Cost [euro], Fuel Cost [Euro]
+
+# be carefull that for emathanol is a RFNO fuel and you calculate the final applicable energy *2
+
+For EU TS Calculate: IntraEU Emissions [tonnes], InterEU Emissions [tonnes],Berth Emissions [tonnes], EU TS Cost [euro]
+
+Output [For Client]: Compliance Balance[tCO2], Fuel EU Cost[Euro], EU TS Allowances [tonnes] ( its the sum of IntraEU Emissions [tonnes], InterEU Emissions [tonnes],Berth Emissions [tonnes]), Fuel Cost Total Cost

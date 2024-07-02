@@ -1,76 +1,101 @@
-from scipy.optimize import minimize
+from scipy.optimize import differential_evolution
+from scipy.optimize import NonlinearConstraint
 from fuel_calculations import calculate_costs_and_penalties, load_fuel_density
 
 # Pre-load all necessary data
 fuel_density = load_fuel_density()
 
 def calculate_fuel_amounts(percentages, E_total, densities, fixed_fuel, fixed_amount):
-    fuel_amounts = {}
-    remaining_E_total = E_total - fixed_amount * densities[fixed_fuel]
+    energy_from_MDO = fixed_amount * densities[fixed_fuel]  # Assuming density is in MJ/tonne
+    remaining_E_total = E_total - energy_from_MDO
+
+    fuel_amounts = {fixed_fuel: fixed_amount}
     for fuel, percentage in percentages.items():
         if fuel != fixed_fuel:
-            fuel_amounts[fuel] = (percentage / 100) * remaining_E_total / densities[fuel]
-    fuel_amounts[fixed_fuel] = fixed_amount
+            energy_content_per_tonne = densities[fuel]  # Assuming densities are correctly set in MJ/tonne
+            required_energy = (percentage / 100) * remaining_E_total
+            fuel_amounts[fuel] = required_energy / energy_content_per_tonne
+
     return fuel_amounts
+
+def calculate_energy_content(fuel_amounts, densities):
+    # Calculate the total energy content based on the amount and density of fuels.
+    return {fuel: amounts * densities[fuel] for fuel, amounts in fuel_amounts.items()}
 
 def objective_function(x, E_total, fuel_types, densities, fixed_fuel, fixed_amount, trip_type, year, CO2_price_per_ton, fwind):
     percentages = {fuel_types[i]: x[i] for i in range(len(fuel_types))}
     percentages[fixed_fuel] = 100 - sum(x)  # Ensure total is 100%
+    
     fuel_amounts = calculate_fuel_amounts(percentages, E_total, densities, fixed_fuel, fixed_amount)
+    
+    adjusted_E_total = E_total * 0.5 if trip_type == "inter-eu" else E_total
+    journey_fuel_costs, _, Fuel_EU_Penalty, EU_ETS_Penalty = calculate_costs_and_penalties(fuel_amounts, adjusted_E_total, year, CO2_price_per_ton, fwind)
 
-    # Halve E_total for inter-eu
-    if trip_type == "inter-eu":
-        E_total *= 0.5
+    total_cost = journey_fuel_costs['average'] + Fuel_EU_Penalty + EU_ETS_Penalty
 
-    journey_fuel_costs, _, Fuel_EU_Penalty, EU_ETS_Penalty = calculate_costs_and_penalties(fuel_amounts, E_total, year, CO2_price_per_ton, fwind)
+    return total_cost
 
-    # Halve EU_TS_Penalty for inter-eu
-    if trip_type == "inter-eu":
-        EU_ETS_Penalty *= 0.5
-
-    # Sum Fuel costs, Fuel_EU_Penalty, and EU_TS_Penalty
-    return journey_fuel_costs['average'] + Fuel_EU_Penalty + EU_ETS_Penalty
+def total_energy_constraint(x, E_total, fuel_types, densities, fixed_fuel, fixed_amount):
+    percentages = {fuel_types[i]: x[i] for i in range(len(fuel_types))}
+    percentages[fixed_fuel] = 100 - sum(x)  # Ensure total is 100%
+    fuel_amounts = calculate_fuel_amounts(percentages, E_total, densities, fixed_fuel, fixed_amount)
+    total_energy_provided = sum(amount * densities[fuel] for fuel, amount in fuel_amounts.items())
+    return total_energy_provided - E_total
 
 def find_optimal_fuel_mix(E_total, selected_fuels, MDO_tonnes, trip_type, year, CO2_price_per_ton, fwind):
-    fixed_fuel = 'MDO'      # it is fixed since every trip type has MDO
+    fixed_fuel = 'MDO'
     fixed_amount = MDO_tonnes
-    # Checking if MDO is in selected_fuels and remove it
-    if fixed_fuel in selected_fuels:
-        selected_fuels.remove(fixed_fuel)
-    
-    initial_guess = [100 / len(selected_fuels)] * len(selected_fuels)
-    bounds = [(0, 100) for _ in selected_fuels]
-    constraints = {'type': 'eq', 'fun': lambda x: sum(x) - 100}
-    best_result = minimize(
-        objective_function, initial_guess,
-        args=(E_total, selected_fuels, fuel_density, fixed_fuel, fixed_amount, trip_type, year, CO2_price_per_ton, fwind),
-        bounds=bounds, constraints=constraints
+    local_selected_fuels = selected_fuels[:]  # Create a local copy to avoid modifying the original list
+    if fixed_fuel in local_selected_fuels:
+        local_selected_fuels.remove(fixed_fuel)
+
+    bounds = [(0, 100) for _ in local_selected_fuels]
+
+    # Define the constraint for total energy
+    constraint_fun = lambda x: total_energy_constraint(x, E_total, local_selected_fuels, fuel_density, fixed_fuel, fixed_amount)
+    energy_constraint = NonlinearConstraint(constraint_fun, lb=0, ub=0)
+
+    result = differential_evolution(
+        objective_function,
+        bounds,
+        args=(E_total, local_selected_fuels, fuel_density, fixed_fuel, fixed_amount, trip_type, year, CO2_price_per_ton, fwind),
+        constraints=(energy_constraint,),
+        strategy='rand1bin',  # Different strategy
+        maxiter=1500,  # Increased iterations
+        popsize=20,  # Larger population size
+        tol=0.01,
+        mutation=(0.6, 1.2),  # Adjust mutation
+        recombination=0.8,  # Higher recombination
+        seed=None,
+        callback=None,
+        disp=True,
+        polish=True,
+        init='latinhypercube',
+        atol=0
     )
 
-    percentages = {selected_fuels[i]: best_result.x[i] for i in range(len(selected_fuels))}
+    # Calculate percentages from the optimization result
+    percentages = {local_selected_fuels[i]: result.x[i] for i in range(len(local_selected_fuels))}
+    percentages[fixed_fuel] = 100 - sum(result.x)
     fuel_amounts = calculate_fuel_amounts(percentages, E_total, fuel_density, fixed_fuel, fixed_amount)
+    
     energy_contents = calculate_energy_content(fuel_amounts, fuel_density)
     total_energy = sum(energy_contents.values())
+
     actual_percentages = {fuel: (energy_contents[fuel] / total_energy) * 100 for fuel in energy_contents}
 
-    # Halve the Etotal for inter 
-    if trip_type == "inter-eu":
-        E_total *= 0.5
-
-    # Get the final penalties
-    _, _, Fuel_EU_Penalty, EU_ETS_Penalty = calculate_costs_and_penalties(fuel_amounts, E_total, year, CO2_price_per_ton, fwind)
-
-    # Halve the EU_TS_Penalty for inter
-    if trip_type == "inter-eu":
-        EU_ETS_Penalty *= 0.5
+    # Calculate again for the final print
+    E_total_adjusted = E_total * 0.5 if trip_type == "inter-eu" else E_total
+    _, _, Fuel_EU_Penalty, EU_ETS_Penalty = calculate_costs_and_penalties(fuel_amounts, E_total_adjusted, year, CO2_price_per_ton, fwind)
+    EU_ETS_Penalty *= 0.5 if trip_type == "inter-eu" else 1
 
     print(f"For {trip_type}:")
-    print(f"Optimal fuel types {trip_type}:", selected_fuels + [fixed_fuel])
+    print(f"Optimal fuel types {trip_type}:", local_selected_fuels + [fixed_fuel])
     print(f"Optimal percentages {trip_type}:", actual_percentages)
     print(f"Optimal fuel amounts (tonnes) {trip_type}:", fuel_amounts)
     print(f"EU ETS Penalty {trip_type}: {EU_ETS_Penalty:.2f} €")
     print(f"FuelEU Penalty {trip_type}: {Fuel_EU_Penalty:.2f} €")
-    print(f"Optimal total cost {trip_type}: {best_result.fun:.3f} €")
+    print(f"Optimal total cost {trip_type}: {result.fun:.3f} €")
 
 def berth_scenario(E_total, year, CO2_price_per_ton, OPS_at_berth, total_installed_power, established_power_demand, hours_at_berth, cost_per_MWh, fwind):
     MJ_to_MWh = 0.0002777778  # Conversion factor from MJ to MWh
@@ -159,11 +184,6 @@ def get_user_input():
                 }
 
     return year, CO2_price_per_ton, cost_per_MWh, E_totals, MDO_tonnes, selected_fuels, OPS_flags, OPS_details, fwind
-
-def calculate_energy_content(fuel_amounts, densities):
-    # Calculate the total energy content based on the amount and density of fuels.
-    return {fuel: amounts * densities[fuel] for fuel, amounts in fuel_amounts.items()}
-
 
 if __name__ == "__main__":
     year, CO2_price_per_ton, cost_per_MWh, E_totals, MDO_tonnes, selected_fuels, OPS_flags, OPS_details, fwind = get_user_input()
