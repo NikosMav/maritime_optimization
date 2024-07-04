@@ -31,45 +31,28 @@ def generate_input_from_scenario(scenario):
     return inputs
 
 def parse_output(output):
-    results = {"Intra": {}, "Inter": {}, "Berth": {}}
+    results = {}
     lines = output.splitlines()
-    trip_type = None
 
     for line in lines:
         line = line.strip()
-        if "For intra-eu:" in line:
-            trip_type = "Intra"
-        elif "For inter-eu:" in line:
-            trip_type = "Inter"
-        elif "For Berth:" in line:
-            trip_type = "Berth"
 
-        if trip_type:
-            if "Optimal fuel types" in line:
-                results[trip_type]["fuel_types"] = ast.literal_eval(line.split(':', 1)[1].strip())
-            elif "Optimal percentages" in line:
-                results[trip_type]["percentages"] = ast.literal_eval(line.split(':', 1)[1].strip())
-            elif "amounts (tonnes)" in line:
-                results[trip_type]["amounts"] = ast.literal_eval(line.split(':', 1)[1].strip())
-            elif "EU ETS Penalty" in line or "FuelEU Penalty" in line:
-                penalty_key = "EU ETS" if "EU ETS" in line else "FuelEU"
-                penalty_value = float(line.split(':')[1].strip().split('€')[0])
-                results[trip_type]["penalties"] = results[trip_type].get("penalties", {})
-                results[trip_type]["penalties"][penalty_key] = results[trip_type]["penalties"].get(penalty_key, 0) + penalty_value
-            elif "OPS Penalty" in line:
-                ops_penalty = float(line.split(':')[1].strip().split('€')[0])
-                results[trip_type]["penalties"] = results[trip_type].get("penalties", {})
-                results[trip_type]["penalties"]["OPS"] = results[trip_type]["penalties"].get("OPS", 0) + ops_penalty
-            elif "OPS Cost" in line:
-                ops_cost = float(line.split(':')[1].strip().split('€')[0])
-                results[trip_type]["OPS_cost"] = ops_cost  # Store OPS cost separately
-            elif "Optimal total cost" in line or "Total cost" in line:
-                cost = float(line.split(':')[1].strip().split('€')[0])
-                results[trip_type]["costs"] = {"total": cost}
+        if "Optimal fuel amounts (tonnes)" in line:
+            results["fuel_amounts"] = ast.literal_eval(line.split(':', 1)[1].strip())
+        elif "Total CB" in line:
+            results["Total_CB"] = float(line.split(':', 1)[1].strip())
+        elif "Final FuelEU penalty" in line:
+            results["FuelEU_penalty"] = float(line.split(':', 1)[1].strip())
+        elif "Final EU ETS penalty" in line:
+            results["EU_ETS_penalty"] = float(line.split(':', 1)[1].strip())
+        elif "OPS cost" in line:
+            results["OPS_cost"] = float(line.split(':', 1)[1].strip())
+        elif "OPS penalty" in line:
+            results["OPS_penalty"] = float(line.split(':', 1)[1].strip())
+        elif "Optimal total cost" in line:
+            results["total_cost"] = float(line.split(':', 1)[1].strip())
 
     return results
-
-
 
 def calculate_total_costs_and_penalties(results):
     total_costs = 0
@@ -199,8 +182,6 @@ for year in range(2025, 2051, 5):
             print(f"Running scenario {scenario_count} for year {year} with CO2 price {CO2_price} {scenario_desc}")
             scenario_count += 1
             scenario_result = run_scenario(scenario)  # Running scenario
-            total_costs, total_penalties = calculate_total_costs_and_penalties(scenario_result)  # Calculate costs and penalties
-            scenario_result['Total'] = {'costs': total_costs, 'penalties': total_penalties}
             results.append({
                 'scenario': scenario,
                 'results': scenario_result

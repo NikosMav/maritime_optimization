@@ -13,36 +13,21 @@ for entry in data:
     results = entry['results']
     year = scenario['year']
     CO2_price = scenario['CO2_price']
-    total_results = results.get('Total', {})
+    total_cost = results.get('total_cost', 0)
+    FuelEU_penalty = results.get('FuelEU_penalty', 0)
+    EU_ETS_penalty = results.get('EU_ETS_penalty', 0)
+    OPS_cost = results.get('OPS_cost', 0)
+    OPS_penalty = results.get('OPS_penalty', 0)
     OPS_at_berth = scenario.get('OPS_at_berth', False)
 
-    # Handling different data types for total costs
-    total_cost = total_results.get('costs', 0)
-    if isinstance(total_cost, dict):
-        total_cost = total_cost.get('total', 0)
+    # Calculate fuel costs
+    fuel_costs = total_cost - (FuelEU_penalty + EU_ETS_penalty + OPS_cost + OPS_penalty)
 
-    # Retrieve penalties and OPS costs
-    EU_ETS_penalty = total_results.get('penalties', {}).get('EU ETS', 0)
-    FuelEU_penalty = total_results.get('penalties', {}).get('FuelEU', 0)
-    OPS_penalty = total_results.get('penalties', {}).get('OPS', 0)
-    berth_results = results.get('Berth', {})
-    OPS_cost = berth_results.get('OPS_cost', 0)
-
-    # Calculate total fuel amounts from Intra, Inter, and possibly Berth
-    fuel_totals = {}
-    for trip_type in ['Intra', 'Inter', 'Berth']:
-        if trip_type in results:
-            for fuel, amount in results[trip_type].get('amounts', {}).items():
-                if fuel in fuel_totals:
-                    fuel_totals[fuel] += amount
-                else:
-                    fuel_totals[fuel] = amount
-
-    # Calculate the fuel costs
-    fuel_costs = total_cost - (EU_ETS_penalty + FuelEU_penalty + OPS_penalty + OPS_cost)
+    # Retrieve total fuel amounts
+    fuel_amounts = results.get('fuel_amounts', {})
 
     # Create a row for each fuel type for detailed breakdown in the CSV
-    for fuel, total_amount in fuel_totals.items():
+    for fuel, total_amount in fuel_amounts.items():
         row = {
             'year': year,
             'CO2_price': CO2_price,
