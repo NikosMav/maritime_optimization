@@ -146,10 +146,11 @@ def calculate_total_fuel_costs_and_EU_ETS_penalties(year, CO2_price_per_ton, fue
         'average': fuel_costs_intra['average'] + fuel_costs_inter['average'] + fuel_costs_berth['average']
     }
     
+    total_CO2_emissions = total_CO2_emissions_intra + total_CO2_emissions_inter + total_CO2_emissions_berth
     total_eu_ets_penalty = eu_ets_penalty_intra + eu_ets_penalty_inter + eu_ets_penalty_berth
     
     # If the year is 2025, apply a 30% reduction to the total EU ETS Penalty
     if year == 2025:
         total_eu_ets_penalty *= 0.7
 
-    return total_fuel_costs, total_eu_ets_penalty
+    return total_fuel_costs, total_eu_ets_penalty, total_CO2_emissions
