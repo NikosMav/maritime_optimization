@@ -167,7 +167,11 @@ def optimize_fuel_mix(E_totals, fuel_types, densities, OPS_flags, OPS_details, y
     optimal_percentages = result.x
 
     percentages = {fuel_types[i]: optimal_percentages[i] for i in range(len(fuel_types))}
-
+    percentages_sum = sum(percentages.values())
+    if percentages_sum > 100:  # Ensure the percentages sum to 100
+        percentages = {fuel: (percentage / percentages_sum) * 100 for fuel, percentage in percentages.items()}
+    else:
+        percentages = {fuel: percentage for fuel, percentage in percentages.items()}
     # Separate fuel amounts for each trip type
     fuel_amounts_intra = calculate_fuel_amounts(percentages, E_totals['intra-eu'], densities)
     fuel_amounts_inter = calculate_fuel_amounts(percentages, E_totals['inter-eu'], densities)
@@ -227,7 +231,8 @@ def optimize_fuel_mix(E_totals, fuel_types, densities, OPS_flags, OPS_details, y
     print(f"OPS penalty: {OPS_penalty}")
     print(f"Fuel costs: {fuel_costs}")
     print(f"Optimal total cost: {total_cost}")
-
+    recalculated_cost = objective_function(result.x, E_totals, fuel_types, densities, OPS_flags, OPS_details, year, CO2_price_per_ton, fwind, cost_per_MWh)
+    print(f"Optimal total RECALCULATED cost: {recalculated_cost}")
     return result
 
 def berth_scenario(percentages, E_total, densities, OPS_use, total_installed_power, established_power_demand, hours_at_berth, cost_per_MWh):

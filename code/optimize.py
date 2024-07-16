@@ -91,7 +91,7 @@ def objective_function(x, E_totals, fuel_types, densities, fixed_fuel, MDO_tonne
         fuel_amounts_berth, OPS_penalty, OPS_cost = berth_scenario(E_totals['berth'], OPS_flags['berth'], 0, 0, 0, cost_per_MWh)
 
     # Calculate total fuel costs and EU ETS penalties
-    total_fuel_costs, total_EU_ETS_penalty = calculate_total_fuel_costs_and_EU_ETS_penalties(
+    total_fuel_costs, total_EU_ETS_penalty, c02 = calculate_total_fuel_costs_and_EU_ETS_penalties(
         year, CO2_price_per_ton, fuel_amounts_intra, fuel_amounts_inter, fuel_amounts_berth
     )
 
@@ -135,8 +135,8 @@ def optimize_fuel_mix(E_totals, fuel_types, densities, fixed_fuel, MDO_tonnes, O
         args=(E_totals, fuel_types, densities, fixed_fuel, MDO_tonnes, OPS_flags, OPS_details, year, CO2_price_per_ton, fwind, cost_per_MWh),
         constraints=(energy_constraint,),
         strategy='best1bin',  # Try different strategy
-        maxiter=3000,  # Increased iterations
-        popsize=50,  # Larger population size
+        maxiter=10000,  # Increased iterations
+        popsize=10,  # Larger population size
         tol=0.0001,
         mutation=(0.5, 1.5),  # Adjust mutation
         recombination=0.9,  # Higher recombination
@@ -144,7 +144,8 @@ def optimize_fuel_mix(E_totals, fuel_types, densities, fixed_fuel, MDO_tonnes, O
         callback=None,
         disp=True,
         polish=True,
-        init='sobol',  # Different initialization strategy
+        init='latinhypercube',  # Different initialization strategy
+        workers=8,
         atol=0
     )
 
@@ -175,7 +176,7 @@ def optimize_fuel_mix(E_totals, fuel_types, densities, fixed_fuel, MDO_tonnes, O
                 total_fuel_amounts[fuel] = amount
 
     # Calculate total fuel costs and EU ETS penalties
-    total_fuel_costs, total_EU_ETS_penalty = calculate_total_fuel_costs_and_EU_ETS_penalties(
+    total_fuel_costs, total_EU_ETS_penalty, c02 = calculate_total_fuel_costs_and_EU_ETS_penalties(
         year, CO2_price_per_ton, fuel_amounts_intra, fuel_amounts_inter, fuel_amounts_berth
     )
 

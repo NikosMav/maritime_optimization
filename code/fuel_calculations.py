@@ -2,30 +2,30 @@ import json
 
 ############################## LOAD FUNCTIONS ##############################
 # Load WtW factors
-def load_wtw_factors(filename='../json/wtw_factors.json'):
+def load_wtw_factors(filename='../maritime_optimization/json/wtw_factors.json'):
     with open(filename, 'r') as file:
         wtw_factors = json.load(file)
     return {key.upper(): value for key, value in wtw_factors.items()}
 
 # Load fuel data
-def load_fuel_data(filename='../json/fuel_prices.json'):
+def load_fuel_data(filename='../maritime_optimization/json/fuel_prices.json'):
     with open(filename, 'r') as file:
         fuel_data = json.load(file)
     return fuel_data
 
 # Load fuel densities
-def load_fuel_density(filename='../json/fuel_density.json'):
+def load_fuel_density(filename='../maritime_optimization/json/fuel_density.json'):
     with open(filename, 'r') as file:
         return json.load(file)
     
 # Load CO2 emission factors
-def load_co2_emission_factors(filename='../json/co2_emission_factors.json'):
+def load_co2_emission_factors(filename='../maritime_optimization/json/co2_emission_factors.json'):
     with open(filename, 'r') as file:
         co2_factors = json.load(file)
     return {key.upper(): value for key, value in co2_factors.items()}
 
 # Load GHG reduction targets
-def load_ghgi_targets(filename='../json/ghgi_targets.json'):
+def load_ghgi_targets(filename='../maritime_optimization/json/ghgi_targets.json'):
     with open(filename, 'r') as file:
         ghgi_targets = json.load(file)
     return ghgi_targets
