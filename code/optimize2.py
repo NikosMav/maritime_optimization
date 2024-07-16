@@ -86,12 +86,12 @@ def objective_function(x, E_totals, fuel_types, densities, OPS_flags, OPS_detail
     fuel_amounts_inter = calculate_fuel_amounts(percentages, E_totals['inter-eu'], densities)
     
     if OPS_flags['berth']:
-        fuel_amounts_berth, OPS_penalty, OPS_cost = berth_scenario(E_totals['berth'], OPS_flags['berth'], 
+        fuel_amounts_berth, OPS_penalty, OPS_cost = berth_scenario(percentages, E_totals['berth'], densities, OPS_flags['berth'], 
                                             OPS_details['berth']['total_installed_power'],
                                             OPS_details['berth']['established_power_demand'],
                                             OPS_details['berth']['hours_at_berth'], cost_per_MWh)
     else:
-        fuel_amounts_berth, OPS_penalty, OPS_cost = berth_scenario(E_totals['berth'], OPS_flags['berth'], 0, 0, 0, cost_per_MWh)
+        fuel_amounts_berth, OPS_penalty, OPS_cost = berth_scenario(percentages, E_totals['berth'], densities, OPS_flags['berth'], 0, 0, 0, cost_per_MWh)
 
     # Calculate total fuel costs and EU ETS penalties
     total_fuel_costs, total_EU_ETS_penalty, _  = calculate_total_fuel_costs_and_EU_ETS_penalties(
@@ -103,7 +103,7 @@ def objective_function(x, E_totals, fuel_types, densities, OPS_flags, OPS_detail
     fuel_percentages_inter = {fuel: amount / sum(fuel_amounts_inter.values()) * 100 for fuel, amount in fuel_amounts_inter.items()}
     
     if OPS_flags['berth']:
-        fuel_percentages_berth = {'MDO': 0}  # No MDO usage if OPS is used
+        fuel_percentages_berth = {fuel: 0 for fuel in fuel_types}
     else:
         fuel_percentages_berth = {fuel: amount / sum(fuel_amounts_berth.values()) * 100 for fuel, amount in fuel_amounts_berth.items()}
 
@@ -132,16 +132,16 @@ def total_energy_constraint(x, E_total, fuel_types, densities):
 def optimize_fuel_mix(E_totals, fuel_types, densities, OPS_flags, OPS_details, year, CO2_price_per_ton, fwind, cost_per_MWh):
     bounds = [(0, 100) for _ in fuel_types]
 
-    # Define the constraint for total energy
-    constraint_fun = lambda x: total_energy_constraint(x, sum(E_totals.values()), fuel_types, densities)
-    energy_constraint = NonlinearConstraint(constraint_fun, lb=0, ub=0)
+    # # Define the constraint for total energy
+    # constraint_fun = lambda x: total_energy_constraint(x, sum(E_totals.values()), fuel_types, densities)
+    # energy_constraint = NonlinearConstraint(constraint_fun, lb=0, ub=0)
 
-    # # Define the constraints for total energy for each trip type
-    # constraints = []
-    # for trip_type in E_totals.keys():
-    #     constraint_fun = lambda x, trip_type=trip_type: total_energy_constraint(x, E_totals[trip_type], fuel_types, densities)
-    #     energy_constraint = NonlinearConstraint(constraint_fun, lb=0, ub=0)
-    #     constraints.append(energy_constraint)
+    # Define the constraints for total energy for each trip type
+    constraints = []
+    for trip_type in E_totals.keys():
+        constraint_fun = lambda x, trip_type=trip_type: total_energy_constraint(x, E_totals[trip_type], fuel_types, densities)
+        energy_constraint = NonlinearConstraint(constraint_fun, lb=0, ub=0)
+        constraints.append(energy_constraint)
 
     result = differential_evolution(
         objective_function,
@@ -150,16 +150,17 @@ def optimize_fuel_mix(E_totals, fuel_types, densities, OPS_flags, OPS_details, y
         constraints=(energy_constraint,),
         strategy='best1bin',  # Try different strategy
         maxiter=3000,  # Increased iterations
-        popsize=100,  # Larger population size
-        tol=0.0001,
+        popsize=400,  # Larger population size
+        tol=1e-6,
         mutation=(0.5, 1.5),  # Adjust mutation
         recombination=0.9,  # Higher recombination
         seed=None,
         callback=None,
         disp=True,
-        polish=False,
-        init='sobol',  # Different initialization strategy
-        atol=0
+        polish=True,
+        init='latinhypercube',  # Different initialization strategy
+        atol=0,
+        workers=4
     )
 
     # Extract the optimal percentages
@@ -172,12 +173,10 @@ def optimize_fuel_mix(E_totals, fuel_types, densities, OPS_flags, OPS_details, y
     fuel_amounts_inter = calculate_fuel_amounts(percentages, E_totals['inter-eu'], densities)
     
     if OPS_flags['berth']:
-        fuel_amounts_berth, OPS_penalty, OPS_cost = berth_scenario(E_totals['berth'], OPS_flags['berth'], 
-                                            OPS_details['berth']['total_installed_power'],
-                                            OPS_details['berth']['established_power_demand'],
-                                            OPS_details['berth']['hours_at_berth'], cost_per_MWh)
+        fuel_amounts_berth, OPS_penalty, OPS_cost = {}, 0, 0
     else:
-        fuel_amounts_berth, OPS_penalty, OPS_cost = berth_scenario(E_totals['berth'], OPS_flags['berth'], 0, 0, 0, cost_per_MWh)
+        fuel_amounts_berth = calculate_fuel_amounts(percentages, E_totals['berth'], densities)
+        OPS_penalty, OPS_cost = 0, 0
 
     total_fuel_amounts = {}
     for fuel_amounts in [fuel_amounts_intra, fuel_amounts_inter, fuel_amounts_berth]:
@@ -197,7 +196,7 @@ def optimize_fuel_mix(E_totals, fuel_types, densities, OPS_flags, OPS_details, y
     fuel_percentages_inter = {fuel: amount / sum(fuel_amounts_inter.values()) * 100 for fuel, amount in fuel_amounts_inter.items()}
     
     if OPS_flags['berth']:
-        fuel_percentages_berth = {'MDO': 0}  # No MDO usage if OPS is used
+        fuel_percentages_berth = {fuel: 0 for fuel in fuel_types}
     else:
         fuel_percentages_berth = {fuel: amount / sum(fuel_amounts_berth.values()) * 100 for fuel, amount in fuel_amounts_berth.items()}
 
@@ -217,6 +216,9 @@ def optimize_fuel_mix(E_totals, fuel_types, densities, OPS_flags, OPS_details, y
     print(f"Berth EU energy [MJ]: {E_totals['berth']}")
     print(f"Total Applicable Energy [MJ]: {sum(E_totals.values())}")
     print(f"Optimal fuel amounts (tonnes): {total_fuel_amounts}")
+    print(f"Optimal fuel amounts for Intra EU (tonnes): {fuel_amounts_intra}")
+    print(f"Optimal fuel amounts for Inter EU (tonnes): {fuel_amounts_inter}")
+    print(f"Optimal fuel amounts for Berth (tonnes): {fuel_amounts_berth}")
     print(f"Total CB: {total_CB}")
     print(f"Final FuelEU penalty: {total_Fuel_EU_penalty}")
     print(f"Final EU ETS penalty: {total_EU_ETS_penalty}")
@@ -228,7 +230,7 @@ def optimize_fuel_mix(E_totals, fuel_types, densities, OPS_flags, OPS_details, y
 
     return result
 
-def berth_scenario(E_total, OPS_use, total_installed_power, established_power_demand, hours_at_berth, cost_per_MWh):
+def berth_scenario(percentages, E_total, densities, OPS_use, total_installed_power, established_power_demand, hours_at_berth, cost_per_MWh):
     MJ_to_MWh = 0.0002777778  # Conversion factor from MJ to MWh
     fuel_amounts = {}
 
@@ -240,9 +242,7 @@ def berth_scenario(E_total, OPS_use, total_installed_power, established_power_de
         return fuel_amounts, OPS_penalty, OPS_cost
     else:
         # Standard calculation if OPS is not used
-        MDO_density = fuel_densities['MDO']
-        MDO_tonnes = E_total / MDO_density  # Calculate MDO_tonnes from E_total and MDO_density
-        fuel_amounts['MDO'] = MDO_tonnes
+        fuel_amounts = calculate_fuel_amounts(percentages, E_total, densities)
         OPS_penalty = 0
         OPS_cost = 0
         return fuel_amounts, OPS_penalty, OPS_cost
@@ -250,7 +250,7 @@ def berth_scenario(E_total, OPS_use, total_installed_power, established_power_de
 def main():
     year, CO2_price_per_ton, cost_per_MWh, E_totals, fuel_amounts, selected_fuels, OPS_flags, OPS_details, fwind, fuel_densities = get_user_input()
 
-    # Example selected fuels
+    # Example scenario
     selected_fuels = ['VLSFO', 'MDO', 'BIO-DIESEL']
 
      # Optimizing fuel mix
