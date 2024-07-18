@@ -131,7 +131,7 @@ def calculate_total_fuel_costs_and_EU_ETS_penalties(year, CO2_price_per_ton, fue
 
     # Calculate fuel costs and EU ETS penalties for Inter trip
     fuel_costs_inter = calculate_fuel_costs(fuel_data, fuel_amounts_inter, year)
-    total_CO2_emissions_inter = calculate_CO2_emissions(fuel_amounts_inter, co2_factors)
+    total_CO2_emissions_inter = calculate_CO2_emissions(fuel_amounts_inter, co2_factors)/2.0
     eu_ets_penalty_inter = calculate_EU_ETS_Penalty(total_CO2_emissions_inter, CO2_price_per_ton)
 
     # Calculate fuel costs and EU ETS penalties for Berth trip
@@ -147,7 +147,7 @@ def calculate_total_fuel_costs_and_EU_ETS_penalties(year, CO2_price_per_ton, fue
     }
     
     total_CO2_emissions = total_CO2_emissions_intra + total_CO2_emissions_inter + total_CO2_emissions_berth
-    total_eu_ets_penalty = eu_ets_penalty_intra + (eu_ets_penalty_inter * 0.5) + eu_ets_penalty_berth
+    total_eu_ets_penalty = eu_ets_penalty_intra + eu_ets_penalty_inter + eu_ets_penalty_berth
     
     # If the year is 2025, apply a 30% reduction to the total EU ETS Penalty
     if year == 2025:

@@ -5,6 +5,43 @@ from fuel_calculations import (
                         )
 
 fuel_densities = load_fuel_density()
+def get_user_input_FAST():
+    fwind = 1.0
+    fuel_amounts = {}
+    selected_fuels = {}
+    E_totals = {}
+    OPS_details = {}
+    OPS_flags = {}
+    fuel_types = ['HFO', 'VLSFO', 'MDO', 'BIO-DIESEL', 'LNG', 'E-METHANOL']
+
+    trip_types = ['intra-eu', 'inter-eu', 'berth']
+    with open("C:\\Users\\Lenovo\\Desktop\\skatouts9\\maritime_optimization\\code\\fast.nigga", 'r') as file:
+            year = int(file.readline().strip())
+            CO2_price_per_ton = float(file.readline().strip())
+            cost_per_MWh = float(file.readline().strip())
+            fuel_prices = file.readline().strip().lower() == 'yes'
+            for trip_type in trip_types:
+                OPS_flags[trip_type] = False
+                if(trip_type == 'berth'):
+                    ops = file.readline().strip().lower()
+                    OPS_details[trip_type] = {
+                    'total_installed_power': 0,
+                    'established_power_demand': 0,
+                    'hours_at_berth': 0
+                    }
+                    berth_fuel_amounts = {fuel: float(file.readline().strip()) for fuel in fuel_densities}
+                    fuel_amounts[trip_type] = berth_fuel_amounts
+                    E_totals[trip_type] = sum(berth_fuel_amounts[fuel] * fuel_densities[fuel] for fuel in berth_fuel_amounts)
+                else:
+                    fuel_amounts[trip_type] = {}
+                    available_fuels = list(fuel_densities.keys())
+                    for fuel in available_fuels:
+                        fuel_amounts[trip_type][fuel] = float(file.readline().strip())
+                    E_totals[trip_type] = sum(fuel_amounts[trip_type][fuel] * fuel_densities[fuel] for fuel in fuel_amounts[trip_type])
+                    selected_fuels[trip_type] = [fuel for fuel in available_fuels if fuel_amounts[trip_type][fuel] > 0]
+
+            return year, CO2_price_per_ton, cost_per_MWh, E_totals, fuel_amounts, selected_fuels, OPS_flags, OPS_details, fwind, fuel_densities
+
 
 def get_user_input():
     year = int(input("Enter the target year for GHGi compliance (e.g., 2025, 2030): "))
@@ -150,9 +187,9 @@ def optimize_fuel_mix(E_totals, fuel_types, densities, OPS_flags, OPS_details, y
         constraints=(energy_constraint,),
         strategy='best1bin',  # Try different strategy
         maxiter=3000,  # Increased iterations
-        popsize=400,  # Larger population size
+        popsize=1000,  # Larger population size
         tol=1e-6,
-        mutation=(0.5, 1.5),  # Adjust mutation
+        mutation=(0.1, 1.9),  # Adjust mutation
         recombination=0.9,  # Higher recombination
         seed=None,
         callback=None,
@@ -231,8 +268,8 @@ def optimize_fuel_mix(E_totals, fuel_types, densities, OPS_flags, OPS_details, y
     print(f"OPS penalty: {OPS_penalty}")
     print(f"Fuel costs: {fuel_costs}")
     print(f"Optimal total cost: {total_cost}")
-    recalculated_cost = objective_function(result.x, E_totals, fuel_types, densities, OPS_flags, OPS_details, year, CO2_price_per_ton, fwind, cost_per_MWh)
-    print(f"Optimal total RECALCULATED cost: {recalculated_cost}")
+    # recalculated_cost = objective_function(result.x, E_totals, fuel_types, densities, OPS_flags, OPS_details, year, CO2_price_per_ton, fwind, cost_per_MWh)
+    # print(f"Optimal total RECALCULATED cost: {recalculated_cost}")
     return result
 
 def berth_scenario(percentages, E_total, densities, OPS_use, total_installed_power, established_power_demand, hours_at_berth, cost_per_MWh):
@@ -253,7 +290,7 @@ def berth_scenario(percentages, E_total, densities, OPS_use, total_installed_pow
         return fuel_amounts, OPS_penalty, OPS_cost
 
 def main():
-    year, CO2_price_per_ton, cost_per_MWh, E_totals, fuel_amounts, selected_fuels, OPS_flags, OPS_details, fwind, fuel_densities = get_user_input()
+    year, CO2_price_per_ton, cost_per_MWh, E_totals, fuel_amounts, selected_fuels, OPS_flags, OPS_details, fwind, fuel_densities = get_user_input_FAST()
 
     # Example scenario
     selected_fuels = ['VLSFO', 'MDO', 'BIO-DIESEL']
