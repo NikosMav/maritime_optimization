@@ -187,8 +187,8 @@ def optimize_fuel_mix(E_totals, fuel_types, densities, OPS_flags, OPS_details, y
         constraints=(energy_constraint,),
         strategy='best1bin',  # Try different strategy
         maxiter=3000,  # Increased iterations
-        popsize=1000,  # Larger population size
-        tol=1e-6,
+        popsize=250,  # Larger population size
+        tol=1e-8,
         mutation=(0.1, 1.9),  # Adjust mutation
         recombination=0.9,  # Higher recombination
         seed=None,
@@ -243,7 +243,7 @@ def optimize_fuel_mix(E_totals, fuel_types, densities, OPS_flags, OPS_details, y
 
     total_CB, total_Fuel_EU_penalty = calculate_total_Fuel_EU_Penalty(
         year, E_totals['intra-eu'], E_totals['inter-eu'], E_totals['berth'], fwind,
-        fuel_percentages_intra, fuel_percentages_inter, fuel_percentages_berth
+        fuel_percentages_intra, fuel_percentages_inter, fuel_percentages_berth,True
     )
 
     # Calculate total cost
@@ -260,6 +260,9 @@ def optimize_fuel_mix(E_totals, fuel_types, densities, OPS_flags, OPS_details, y
     print(f"Optimal fuel amounts for Intra EU (tonnes): {fuel_amounts_intra}")
     print(f"Optimal fuel amounts for Inter EU (tonnes): {fuel_amounts_inter}")
     print(f"Optimal fuel amounts for Berth (tonnes): {fuel_amounts_berth}")
+    print(f"AFTER OPTIMIZATION Intra EU energy [MJ]: {sum(fuel_amounts_intra[fuel] * fuel_densities[fuel] for fuel in fuel_types)}")
+    print(f"AFTER OPTIMIZATION Inter EU energy [MJ]: {sum(fuel_amounts_inter[fuel] * fuel_densities[fuel] for fuel in fuel_types)}")
+    print(f"AFTER OPTIMIZATION Berth EU energy [MJ]: {sum(fuel_amounts_berth[fuel] * fuel_densities[fuel] for fuel in fuel_types)}")
     print(f"Total CB: {total_CB}")
     print(f"Final FuelEU penalty: {total_Fuel_EU_penalty}")
     print(f"Final EU ETS penalty: {total_EU_ETS_penalty}")
@@ -268,6 +271,8 @@ def optimize_fuel_mix(E_totals, fuel_types, densities, OPS_flags, OPS_details, y
     print(f"OPS penalty: {OPS_penalty}")
     print(f"Fuel costs: {fuel_costs}")
     print(f"Optimal total cost: {total_cost}")
+
+
     # recalculated_cost = objective_function(result.x, E_totals, fuel_types, densities, OPS_flags, OPS_details, year, CO2_price_per_ton, fwind, cost_per_MWh)
     # print(f"Optimal total RECALCULATED cost: {recalculated_cost}")
     return result

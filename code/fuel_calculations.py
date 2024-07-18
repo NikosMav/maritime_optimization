@@ -45,16 +45,18 @@ def calculate_GHGi_target(year):
     adjusted_target = reference_value * (1 - reduction_percentage / 100)
     return adjusted_target
 
-def calculate_Fuel_EU_Penalty(GHGi_actual, E_total, GHGi_target, fwind):
+def calculate_Fuel_EU_Penalty(GHGi_actual, E_total, GHGi_target, fwind, print_flag=False):
     CB = fwind * (GHGi_target - GHGi_actual) * E_total
     # Only calculate FuelEU penalty if CB is negative (non-compliant)
     if CB < 0:
         Fuel_EU_Penalty = abs(CB) / (GHGi_actual * 41000) * 2400
     else:
+        if print_flag:
+            print(f"FuelEU surplus: {CB / (GHGi_actual * 41000) * 2400}")
         Fuel_EU_Penalty = 0  # No penalty if compliant or better
     return CB, Fuel_EU_Penalty
 
-def calculate_total_Fuel_EU_Penalty(year, Etotal_Intra, Etotal_Inter, Etotal_Berth, fwind, fuel_percentages_intra, fuel_percentages_inter, fuel_percentages_berth):
+def calculate_total_Fuel_EU_Penalty(year, Etotal_Intra, Etotal_Inter, Etotal_Berth, fwind, fuel_percentages_intra, fuel_percentages_inter, fuel_percentages_berth, print_flag=False):
     WtW_factors = load_wtw_factors()
     
     # Etotal_Inter gets halved only in the Fuel EU penalty calculation
@@ -77,7 +79,7 @@ def calculate_total_Fuel_EU_Penalty(year, Etotal_Intra, Etotal_Inter, Etotal_Ber
     GHGi_target = calculate_GHGi_target(year)
     
     # Calculate the total FuelEU penalty
-    total_CB, total_Fuel_EU_penalty = calculate_Fuel_EU_Penalty(weighted_GHGi_actual, summed_E_total, GHGi_target, fwind)
+    total_CB, total_Fuel_EU_penalty = calculate_Fuel_EU_Penalty(weighted_GHGi_actual, summed_E_total, GHGi_target, fwind, print_flag=print_flag)
     
     return total_CB, total_Fuel_EU_penalty
 ###############################################################################
