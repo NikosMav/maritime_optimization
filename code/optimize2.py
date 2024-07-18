@@ -3,6 +3,7 @@ from fuel_calculations import (
                             calculate_total_Fuel_EU_Penalty, calculate_total_fuel_costs_and_EU_ETS_penalties,
                             load_fuel_density, load_fuel_data
                         )
+import pandas as pd
 
 fuel_densities = load_fuel_density()
 def get_user_input_FAST():
@@ -197,7 +198,7 @@ def optimize_fuel_mix(E_totals, fuel_types, densities, OPS_flags, OPS_details, y
         polish=True,
         init='latinhypercube',  # Different initialization strategy
         atol=0,
-        workers=4
+        # workers=4
     )
 
     # Extract the optimal percentages
@@ -209,6 +210,7 @@ def optimize_fuel_mix(E_totals, fuel_types, densities, OPS_flags, OPS_details, y
         percentages = {fuel: (percentage / percentages_sum) * 100 for fuel, percentage in percentages.items()}
     else:
         percentages = {fuel: percentage for fuel, percentage in percentages.items()}
+
     # Separate fuel amounts for each trip type
     fuel_amounts_intra = calculate_fuel_amounts(percentages, E_totals['intra-eu'], densities)
     fuel_amounts_inter = calculate_fuel_amounts(percentages, E_totals['inter-eu'], densities)
@@ -271,7 +273,15 @@ def optimize_fuel_mix(E_totals, fuel_types, densities, OPS_flags, OPS_details, y
     print(f"OPS penalty: {OPS_penalty}")
     print(f"Fuel costs: {fuel_costs}")
     print(f"Optimal total cost: {total_cost}")
+    
+    # df = pd.read_csv('../graphs/data.csv')
+    # print(df)
+    # new_row = {'year': year, 'CO2_price': CO2_price_per_ton, 'total_cost':total_cost, 'fuel_cost': fuel_costs, 'eu_ets_penalty': total_EU_ETS_penalty, 'fuelEU_penalty':total_Fuel_EU_penalty, 'eu_ets_allowances':total_CO2_emissions, 'scenario': fuel_types}
+    # new_row_df = pd.DataFrame([new_row])
 
+    # df = pd.concat([df, new_row_df], ignore_index=True)
+
+    # df.to_csv('../graphs/data.csv', index=False)
 
     # recalculated_cost = objective_function(result.x, E_totals, fuel_types, densities, OPS_flags, OPS_details, year, CO2_price_per_ton, fwind, cost_per_MWh)
     # print(f"Optimal total RECALCULATED cost: {recalculated_cost}")
