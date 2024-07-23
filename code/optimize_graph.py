@@ -180,29 +180,36 @@ def optimize_fuel_mix(E_totals, fuel_types, densities, OPS_flags, OPS_details, y
         constraint_fun = lambda x, trip_type=trip_type: total_energy_constraint(x, E_totals[trip_type], fuel_types, densities)
         energy_constraint = NonlinearConstraint(constraint_fun, lb=0, ub=0)
         constraints.append(energy_constraint)
+    if fuel_types == ['HFO', 'MDO', 'VLSFO']:
+        # Define an initial guess for the percentages (e.g., equally distributed)
+        initial_guess = [100 / len(fuel_types)] * len(fuel_types)
 
-    result = differential_evolution(
-        objective_function,
-        bounds,
-        args=(E_totals, fuel_types, densities, OPS_flags, OPS_details, year, CO2_price_per_ton, fwind, cost_per_MWh),
-        constraints=(energy_constraint,),
-        strategy='best1bin',  # Try different strategy
-        maxiter=3000,  # Increased iterations
-        popsize=250,  # Larger population size
-        tol=1e-8,
-        mutation=(0.1, 1.9),  # Adjust mutation
-        recombination=0.9,  # Higher recombination
-        seed=None,
-        callback=None,
-        disp=True,
-        polish=True,
-        init='latinhypercube',  # Different initialization strategy
-        atol=0,
-        # workers=4
-    )
+        # Print the initial percentages before minimization
+        initial_percentages = {fuel_types[i]: initial_guess[i] for i in range(len(fuel_types))}
+        print("Initial Percentages:", initial_percentages)
+    else:    
+        result = differential_evolution(
+            objective_function,
+            bounds,
+            args=(E_totals, fuel_types, densities, OPS_flags, OPS_details, year, CO2_price_per_ton, fwind, cost_per_MWh),
+            constraints=(energy_constraint,),
+            strategy='best1bin',  # Try different strategy
+            maxiter=3000,  # Increased iterations
+            popsize=250,  # Larger population size
+            tol=0.01,
+            mutation=(0.1, 1.9),  # Adjust mutation
+            recombination=0.9,  # Higher recombination
+            seed=None,
+            callback=None,
+            # disp=True,
+            polish=True,
+            init='latinhypercube',  # Different initialization strategy
+            atol=0,
+            # workers=4
+        )
 
-    # Extract the optimal percentages
-    optimal_percentages = result.x
+        # Extract the optimal percentages
+        optimal_percentages = result.x
 
     percentages = {fuel_types[i]: optimal_percentages[i] for i in range(len(fuel_types))}
     percentages_sum = sum(percentages.values())
@@ -274,17 +281,19 @@ def optimize_fuel_mix(E_totals, fuel_types, densities, OPS_flags, OPS_details, y
     print(f"Fuel costs: {fuel_costs}")
     print(f"Optimal total cost: {total_cost}")
     
-    df = pd.read_csv('../graphs/data.csv')
+    # df = pd.read_csv('../graphs/data.csv')
     new_row = {'year': year, 'CO2_price': CO2_price_per_ton, 'total_cost':total_cost, 'fuel_cost': fuel_costs, 'eu_ets_penalty': total_EU_ETS_penalty, 'fuelEU_penalty':total_Fuel_EU_penalty, 'eu_ets_allowances':total_CO2_emissions, 'scenario': fuel_types}
-    new_row_df = pd.DataFrame([new_row])
+    # new_row_df = pd.DataFrame([new_row])
 
-    df = pd.concat([df, new_row_df], ignore_index=True)
+    # df = pd.concat([df, new_row_df], ignore_index=True)
 
-    df.to_csv('../graphs/data.csv', index=False)
-    print(df)
+    # df.to_csv('../graphs/data.csv', index=False)
+    # print(df)
 
     # recalculated_cost = objective_function(result.x, E_totals, fuel_types, densities, OPS_flags, OPS_details, year, CO2_price_per_ton, fwind, cost_per_MWh)
     # print(f"Optimal total RECALCULATED cost: {recalculated_cost}")
+    # result = [E_totals['intra-eu'], E_totals['inter-eu'], E_totals['berth'], sum(E_totals.values()), total_fuel_amounts, fuel_amounts_intra, fuel_amounts_inter, fuel_amounts_berth, sum(fuel_amounts_intra[fuel] * fuel_densities[fuel] for fuel in fuel_types), sum(fuel_amounts_inter[fuel] * fuel_densities[fuel] for fuel in fuel_types), sum(fuel_amounts_berth[fuel] * fuel_densities[fuel] for fuel in fuel_types), total_CB, total_Fuel_EU_penalty, total_EU_ETS_penalty, total_CO2_emissions, OPS_cost, OPS_penalty, fuel_costs, total_cost]
+    result = new_row
     return result
 
 def berth_scenario(percentages, E_total, densities, OPS_use, total_installed_power, established_power_demand, hours_at_berth, cost_per_MWh):
